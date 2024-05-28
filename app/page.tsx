@@ -1,4 +1,3 @@
-import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
 
 export const metadata = {
@@ -12,7 +11,6 @@ export default async function HomePage() {
   return (
     <>
       <h1>HomePage</h1>
-      <ThreeItemGrid />
       <Footer />
     </>
   );
