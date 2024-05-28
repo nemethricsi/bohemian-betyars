@@ -8,6 +8,17 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-geist-sans)']
       },
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'bb-white': '#ffffff',
+        'bb-black': '#1A1E1E',
+        'bb-red': '#EB584B',
+        'bb-green': '#0FD7B4',
+        'bb-purple': '#9A38F3',
+        'bb-blue': '#0C7AC7',
+        'bb-yellow': '#F7ED71'
+      },
       keyframes: {
         fadeIn: {
           from: { opacity: 0 },
