@@ -13,11 +13,7 @@ const Label = ({
   position?: 'bottom' | 'center';
 }) => {
   return (
-    <div
-      className={clsx('absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label', {
-        'lg:px-20 lg:pb-[35%]': position === 'center'
-      })}
-    >
+    <div className={clsx('absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label')}>
       <div className="flex items-center rounded-full border bg-white/70 p-1 text-[13px] uppercase text-black backdrop-blur-md">
         <h3 className="mr-4 line-clamp-2 flex-grow pl-2 leading-none tracking-tight">{title}</h3>
         <Price
