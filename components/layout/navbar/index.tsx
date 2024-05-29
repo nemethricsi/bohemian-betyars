@@ -1,19 +1,13 @@
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
-import LogoSquare from 'components/logo-square';
+import LogoChickenLegIcon from 'components/icons/logo-chicken-leg';
 import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import MobileMenu from './mobile-menu';
-const { SITE_NAME } = process.env;
 
 export default async function Navbar() {
   // const menu = await getMenu('next-js-frontend-header-menu');
   const menu: Menu[] = [
-    {
-      title: 'Főoldal',
-      path: '/'
-    },
     {
       title: 'Webshop',
       path: '/webshop'
@@ -22,18 +16,15 @@ export default async function Navbar() {
 
   return (
     <nav className="flex items-center justify-between bg-bb-yellow p-4 text-bb-black lg:px-6">
-      <div className="block flex-none md:hidden">
+      {/* <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />
         </Suspense>
-      </div>
+      </div> */}
       <div className="flex w-full items-center">
         <div className="flex w-full md:w-1/2">
           <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
-            <LogoSquare />
-            <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
-              {SITE_NAME}
-            </div>
+            <LogoChickenLegIcon className="h-[72px] w-[72px] md:h-[88px] md:w-[88px]" />
           </Link>
           {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">
@@ -41,7 +32,7 @@ export default async function Navbar() {
                 <li key={item.title}>
                   <Link
                     href={item.path}
-                    className="text-bb-yellow underline-offset-4 hover:underline"
+                    className="text-bb-black underline-offset-4 hover:underline"
                   >
                     {item.title}
                   </Link>
@@ -55,7 +46,7 @@ export default async function Navbar() {
             <Search />
           </Suspense>
         </div> */}
-        <div className="flex justify-end md:w-1/2">
+        <div className="absolute right-9">
           <Suspense fallback={<OpenCart />}>
             <Cart />
           </Suspense>

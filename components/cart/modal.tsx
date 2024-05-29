@@ -168,12 +168,17 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                       />
                     </div>
                   </div>
-                  <a
-                    href={cart.checkoutUrl}
-                    className="block w-full rounded-full bg-bb-purple p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
-                  >
-                    FIZETÉS
-                  </a>
+                  <div className="flex flex-col gap-2">
+                    <a
+                      href={cart.checkoutUrl}
+                      className="block w-full rounded-full bg-bb-purple p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
+                    >
+                      FIZETÉS
+                    </a>
+                    {/* <a href="/shop" className="p-3 text-center hover:underline">
+                      Folytatom a vásárlást
+                    </a> */}
+                  </div>
                 </div>
               )}
             </Dialog.Panel>

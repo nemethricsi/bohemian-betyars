@@ -14,11 +14,11 @@ export default function OpenCart({
         empty={!Boolean(quantity)}
       />
 
-      {/* {quantity ? (
-        <div className="absolute right-0 top-0 h-4 w-4 rounded bg-bb-purple text-[11px] font-medium text-white">
+      {quantity ? (
+        <div className="absolute right-0 top-0 h-4 w-4 rounded-full bg-bb-purple text-[11px] font-medium text-white">
           {quantity}
         </div>
-      ) : null} */}
+      ) : null}
     </div>
   );
 }
