@@ -44,7 +44,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`h-full ${oswald.variable} font-sans`}>
+    <html lang="en" className={`h-full ${kirakat.variable} ${oswald.variable} font-sans`}>
       <body className="flex h-full flex-col bg-bb-black text-bb-white antialiased selection:bg-bb-yellow">
         <Navbar />
         <main className="flex-grow">{children}</main>
