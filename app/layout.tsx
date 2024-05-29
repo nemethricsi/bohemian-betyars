@@ -6,11 +6,13 @@ import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import './globals.css';
 
-const oswald = Oswald({ subsets: ['latin'] });
+const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' });
 
 const kirakat = localFont({
   src: './kirakat-webfont.woff2',
-  display: 'swap'
+  display: 'swap',
+  weight: '400',
+  variable: '--font-kirakat'
 });
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -42,7 +44,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`h-full ${oswald.className}`}>
+    <html lang="en" className={`h-full ${oswald.variable} font-sans`}>
       <body className="flex h-full flex-col bg-bb-black text-bb-white antialiased selection:bg-bb-yellow">
         <Navbar />
         <main className="flex-grow">{children}</main>

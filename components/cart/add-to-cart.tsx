@@ -16,7 +16,7 @@ function SubmitButton({
 }) {
   const { pending } = useFormStatus();
   const buttonClasses =
-    'relative flex w-full items-center justify-center rounded-full bg-bb-purple p-4 tracking-wide text-white font-[kirakat]';
+    'relative flex w-full items-center justify-center rounded-full bg-bb-purple p-4 tracking-wide text-white font-kirakat';
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
 
   if (!availableForSale) {
@@ -46,7 +46,7 @@ function SubmitButton({
       }}
       aria-label="Add to cart"
       aria-disabled={pending}
-      className={clsx(buttonClasses, {
+      className={clsx(buttonClasses, 'uppercase', {
         'hover:opacity-90': true,
         [disabledClasses]: pending
       })}

@@ -171,7 +171,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                   <div className="flex flex-col gap-2">
                     <a
                       href={cart.checkoutUrl}
-                      className="block w-full rounded-full bg-bb-purple p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
+                      className="block w-full rounded-full bg-bb-purple p-4 text-center font-kirakat text-base font-medium text-white opacity-90 hover:opacity-100"
                     >
                       FIZETÉS
                     </a>

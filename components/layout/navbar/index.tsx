@@ -29,7 +29,7 @@ export default async function Navbar() {
             className="mr-2 flex w-full flex-col items-center justify-center gap-4 md:w-auto md:flex-row md:gap-5 lg:mr-6"
           >
             <LogoChickenLegIcon className="h-[72px] w-[72px] md:h-[88px] md:w-[88px]" />
-            <h1 className="font-[kirakat] text-xl uppercase">Bohemian Betyars webshop</h1>
+            <h1 className="font-kirakat text-xl uppercase">Bohemian Betyars webshop</h1>
           </Link>
           {/* {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">

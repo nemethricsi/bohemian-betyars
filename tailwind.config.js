@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)']
+        sans: ['var(--font-oswald)'],
+        kirakat: ['var(--font-kirakat)']
       },
       colors: {
         transparent: 'transparent',
