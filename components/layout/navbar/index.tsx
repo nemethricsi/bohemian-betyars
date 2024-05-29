@@ -66,7 +66,7 @@ export default async function Navbar() {
         unoptimized
         width={4000}
         height={100}
-        className="rotate-180 md:hidden"
+        className="-translate-y-1 rotate-180 md:hidden"
       />
       <Image
         src="/svg/divider_desktop_yellow.svg"
@@ -74,7 +74,7 @@ export default async function Navbar() {
         unoptimized
         width={4000}
         height={100}
-        className="hidden rotate-180 md:block"
+        className="hidden -translate-y-1 rotate-180 md:block"
       />
     </>
   );

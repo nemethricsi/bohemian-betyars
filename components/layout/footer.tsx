@@ -11,14 +11,14 @@ export default async function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer>
+    <footer className="relative">
       <Image
         src="/svg/divider_desktop_red.svg"
         alt="divider"
         unoptimized
         width={4000}
         height={100}
-        className="hidden md:block"
+        className="hidden translate-y-1 md:block"
       />
       <Image
         src="/svg/divider_mobile_red.svg"
@@ -26,9 +26,9 @@ export default async function Footer() {
         unoptimized
         width={4000}
         height={100}
-        className="md:hidden"
+        className="translate-y-1 md:hidden"
       />
-      <div className="flex justify-center bg-bb-red p-4 text-[13px] text-base uppercase text-bb-white">
+      <div className="flex justify-center bg-bb-red p-6 text-[13px] text-base uppercase text-bb-white">
         &copy; {copyrightName} {currentYear}
       </div>
     </footer>
