@@ -24,7 +24,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
   const previousUrl = createUrl(pathname, previousSearchParams);
 
   const buttonClassName =
-    'h-full px-6 transition-all ease-in-out hover:scale-110 hover:text-black flex items-center justify-center';
+    'p-2 border-2 border-bb-yellow transition-all ease-in-out hover:scale-110 text-bb-yellow bg-bb-black rounded-full flex items-center justify-center';
 
   return (
     <>
@@ -41,24 +41,24 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
         )}
 
         {images.length > 1 ? (
-          <div className="absolute bottom-[15%] flex w-full justify-center">
-            <div className="mx-auto flex h-11 items-center rounded-full border border-white bg-neutral-50/80 text-neutral-500 backdrop-blur">
+          <div className="absolute bottom-6 flex w-full justify-center">
+            <div className="mx-auto flex h-11 items-center rounded-full">
               <Link
                 aria-label="Previous product image"
                 href={previousUrl}
                 className={buttonClassName}
                 scroll={false}
               >
-                <ArrowLeftIcon className="h-5" />
+                <ArrowLeftIcon className="h-5 w-5" />
               </Link>
-              <div className="mx-1 h-6 w-px bg-neutral-500"></div>
+              <div className="mx-1 h-3 w-3 rounded-full border-2 border-bb-yellow"></div>
               <Link
                 aria-label="Next product image"
                 href={nextUrl}
                 className={buttonClassName}
                 scroll={false}
               >
-                <ArrowRightIcon className="h-5" />
+                <ArrowRightIcon className="h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -93,7 +93,9 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
             );
           })}
         </ul>
-      ) : null}
+      ) : (
+        <div className="mb-12" />
+      )}
     </>
   );
 }

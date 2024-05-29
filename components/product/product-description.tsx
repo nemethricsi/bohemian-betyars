@@ -8,9 +8,9 @@ import { VariantSelector } from './variant-selector';
 export function ProductDescription({ product }: { product: Product }) {
   return (
     <>
-      <div className="mb-6 flex flex-col border-b pb-6">
-        <h1 className="mb-2 text-5xl font-medium">{product.title}</h1>
-        <div className="mr-auto w-auto rounded-full bg-blue-600 p-2 text-sm text-white">
+      <div className="mb-6 flex flex-col border-b pb-6 text-bb-yellow">
+        <h1 className="mb-2 font-[Kirakat] text-3xl md:text-5xl">{product.title}</h1>
+        <div className="mr-auto w-auto rounded-full border-2 border-bb-yellow p-2 text-sm text-bb-yellow">
           <Price
             amount={product.priceRange.maxVariantPrice.amount}
             currencyCode={product.priceRange.maxVariantPrice.currencyCode}
