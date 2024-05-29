@@ -1,10 +1,16 @@
 import Navbar from 'components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
 import { Oswald } from 'next/font/google';
+import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import './globals.css';
 
 const oswald = Oswald({ subsets: ['latin'] });
+
+const kirakat = localFont({
+  src: './kirakat-webfont.woff2',
+  display: 'swap'
+});
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL

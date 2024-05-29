@@ -1,4 +1,5 @@
 import Footer from 'components/layout/footer';
+import Image from 'next/image';
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
@@ -10,7 +11,9 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      <h1>HomePage</h1>
+      <Image src="/svg/BB_LOGO.svg" unoptimized alt="logo" width="295" height="251" />
+      <Image src="/images/BB-pressphoto_3.jpeg" alt="concert" width="1920" height="1080" />
+      <div>Something something...</div>
       <Footer />
     </>
   );

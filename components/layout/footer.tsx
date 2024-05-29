@@ -10,7 +10,7 @@ export default async function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="fixed bottom-0 flex w-full justify-center bg-bb-red p-4 text-[13px] text-sm font-light uppercase text-bb-white">
+    <footer className="flex justify-center bg-bb-red p-4 text-[13px] text-sm font-light uppercase text-bb-white">
       &copy; {copyrightName} {currentYear}
     </footer>
   );
