@@ -1,4 +1,3 @@
-import Footer from 'components/layout/footer';
 import Image from 'next/image';
 
 export const metadata = {
@@ -15,7 +14,6 @@ export default async function HomePage() {
       <div className="flex justify-center">
         <Image src="/svg/BB_LOGO.svg" unoptimized alt="logo" width="295" height="251" />
       </div>
-      <Footer />
     </>
   );
 }

@@ -4,6 +4,7 @@ import LogoChickenLegIcon from 'components/icons/logo-chicken-leg';
 import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
 import { Suspense } from 'react';
+// import Search, { SearchSkeleton } from './search';
 
 export default async function Navbar() {
   // const menu = await getMenu('next-js-frontend-header-menu');
