@@ -21,7 +21,7 @@ export default async function Navbar() {
   ];
 
   return (
-    <nav className="relative flex items-center justify-between bg-bb-black p-4 lg:px-6">
+    <nav className="flex items-center justify-between bg-bb-yellow p-4 text-bb-black lg:px-6">
       <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />
@@ -41,7 +41,7 @@ export default async function Navbar() {
                 <li key={item.title}>
                   <Link
                     href={item.path}
-                    className="text-neutral-500 underline-offset-4 hover:text-black hover:underline"
+                    className="text-bb-yellow underline-offset-4 hover:underline"
                   >
                     {item.title}
                   </Link>
