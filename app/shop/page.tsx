@@ -1,19 +1,13 @@
 import { ThreeItemGrid } from 'components/grid/three-items';
-import { GridTileImage } from 'components/grid/tile';
 import { getProducts } from 'lib/shopify';
-import Link from 'next/link';
 
 export default async function WebshopPage() {
   const products = await getProducts({});
 
-  //   console.log({ products });
-  //   console.log(products[2]?.priceRange);
-  //   console.log(products[2]?.priceRange.minVariantPrice.amount);
-
   return (
     <div className="py-10">
       <ThreeItemGrid />
-      <div className="mx-auto max-w-7xl">
+      {/* <div className="mx-auto max-w-7xl">
         <ul className="flex w-full gap-4 overflow-x-auto pt-1">
           {products.map((product) => (
             <li
@@ -36,7 +30,7 @@ export default async function WebshopPage() {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }

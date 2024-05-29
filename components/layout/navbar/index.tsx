@@ -23,10 +23,14 @@ export default async function Navbar() {
       </div> */}
       <div className="flex w-full items-center">
         <div className="flex w-full md:w-1/2">
-          <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
+          <Link
+            href="/"
+            className="mr-2 flex w-full flex-col items-center justify-center gap-4 md:w-auto md:flex-row md:gap-5 lg:mr-6"
+          >
             <LogoChickenLegIcon className="h-[72px] w-[72px] md:h-[88px] md:w-[88px]" />
+            <h1 className="text-xl uppercase">Bohemian Betyars webshop</h1>
           </Link>
-          {menu.length ? (
+          {/* {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">
               {menu.map((item: Menu) => (
                 <li key={item.title}>
@@ -39,14 +43,14 @@ export default async function Navbar() {
                 </li>
               ))}
             </ul>
-          ) : null}
+          ) : null} */}
         </div>
         {/* <div className="hidden justify-center md:flex md:w-1/3">
           <Suspense fallback={<SearchSkeleton />}>
             <Search />
           </Suspense>
         </div> */}
-        <div className="absolute right-9">
+        <div className="absolute right-9 top-6 md:top-auto">
           <Suspense fallback={<OpenCart />}>
             <Cart />
           </Suspense>
