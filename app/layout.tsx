@@ -42,7 +42,7 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={oswald.className}>
-      <body className="bg-bb-black text-bb-white selection:bg-bb-yellow">
+      <body className="bg-bb-black text-bb-white antialiased selection:bg-bb-yellow">
         <Navbar />
         <main>{children}</main>
       </body>
