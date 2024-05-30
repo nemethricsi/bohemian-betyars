@@ -17,7 +17,7 @@ function SubmitButton({
   const { pending } = useFormStatus();
   const buttonClasses =
     'relative flex w-full items-center justify-center rounded-full bg-bb-purple p-4 tracking-wide text-white font-kirakat';
-  const disabledClasses = 'cursor-not-allowed bg-gray-300 text-gray-500';
+  const disabledClasses = 'cursor-not-allowed opacity-60';
 
   if (!availableForSale) {
     return (
