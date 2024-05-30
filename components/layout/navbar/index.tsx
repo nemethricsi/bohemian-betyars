@@ -1,8 +1,9 @@
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
+import DividerDesktop from 'components/icons/divider-desktop';
+import DividerMobile from 'components/icons/divider-mobile';
 import LogoChickenLegIcon from 'components/icons/logo-chicken-leg';
 import { Menu } from 'lib/shopify/types';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 // import Search, { SearchSkeleton } from './search';
@@ -17,8 +18,8 @@ export default async function Navbar() {
   ];
 
   return (
-    <>
-      <nav className="flex items-center justify-between bg-bb-yellow p-4 text-bb-black lg:px-6">
+    <nav className="relative">
+      <div className="flex items-center justify-between bg-bb-yellow p-4 text-bb-black lg:px-6">
         {/* <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
         <MobileMenu menu={menu} />
@@ -59,23 +60,9 @@ export default async function Navbar() {
             </Suspense>
           </div>
         </div>
-      </nav>
-      <Image
-        src="/svg/divider_mobile_yellow.svg"
-        alt="divider"
-        unoptimized
-        width={4000}
-        height={100}
-        className="-translate-y-1 rotate-180 md:hidden"
-      />
-      <Image
-        src="/svg/divider_desktop_yellow.svg"
-        alt="divider"
-        unoptimized
-        width={4000}
-        height={100}
-        className="hidden -translate-y-1 rotate-180 md:block"
-      />
-    </>
+      </div>
+      <DividerDesktop className="hidden -translate-y-1 rotate-180 fill-bb-yellow md:block" />
+      <DividerMobile className="-translate-y-1 rotate-180 fill-bb-yellow md:hidden" />
+    </nav>
   );
 }
