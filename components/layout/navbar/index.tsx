@@ -19,6 +19,8 @@ export default async function Navbar() {
 
   return (
     <nav className="relative">
+      <DividerDesktop className="absolute bottom-0 left-0 hidden w-full translate-y-[calc(100%-1px)] rotate-180 fill-bb-yellow md:block" />
+      <DividerMobile className="absolute bottom-0 left-0 translate-y-[calc(100%-1px)] rotate-180 fill-bb-yellow md:hidden" />
       <div className="flex items-center justify-between bg-bb-yellow p-4 text-bb-black lg:px-6">
         {/* <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
@@ -61,8 +63,6 @@ export default async function Navbar() {
           </div>
         </div>
       </div>
-      <DividerDesktop className="hidden -translate-y-1 rotate-180 fill-bb-yellow md:block" />
-      <DividerMobile className="-translate-y-1 rotate-180 fill-bb-yellow md:hidden" />
     </nav>
   );
 }
