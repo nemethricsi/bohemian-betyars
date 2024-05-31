@@ -22,7 +22,7 @@ export function ProductDescription({ product }: { product: Product }) {
       </Suspense>
 
       {product.descriptionHtml ? (
-        <Prose className="mb-6 text-sm leading-tight" html={product.descriptionHtml} />
+        <Prose className="mb-6 leading-tight" html={product.descriptionHtml} />
       ) : null}
 
       <Suspense fallback={null}>
