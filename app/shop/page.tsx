@@ -5,7 +5,7 @@ export default async function WebshopPage() {
   const products = await getProducts({});
 
   return (
-    <div className="py-10">
+    <div className="py-16">
       <ThreeItemGrid />
     </div>
   );
