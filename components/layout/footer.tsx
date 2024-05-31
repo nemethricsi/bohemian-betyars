@@ -22,7 +22,7 @@ export default async function Footer() {
       <FeatherIllu className="absolute right-6 top-32 h-auto w-48 -rotate-[140deg] md:right-64 md:top-16 md:-rotate-180" />
       <div className="flex flex-col items-center justify-center p-6 text-bb-black md:p-12">
         <div className="flex gap-5 self-stretch md:pb-6">
-          <LogoBohemianBetyars className="hidden fill-bb-white md:block" />
+          <LogoBohemianBetyars className="hidden h-auto w-48 fill-bb-white md:block" />
           <div className="flex flex-1 flex-col-reverse gap-8 md:flex-row md:gap-28">
             <div className="flex flex-col gap-1">
               <p className="font-base font-kirakat uppercase text-bb-black">Információk</p>
