@@ -11,7 +11,7 @@ export default async function WebshopPage() {
   console.log({ notFeaturedProducts });
 
   return (
-    <div className="py-16">
+    <div className="py-8 md:py-16">
       <ThreeItemGrid />
       <section className="mx-auto max-w-7xl px-8 pb-4">
         <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
