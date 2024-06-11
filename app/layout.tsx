@@ -3,6 +3,7 @@ import Navbar from 'components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
 import { Oswald } from 'next/font/google';
 import localFont from 'next/font/local';
+import { Next13NProgress } from 'nextjs13-progress';
 import { ReactNode } from 'react';
 import './globals.css';
 
@@ -49,6 +50,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <Next13NProgress color="#9A38F3" height={4} options={{ showSpinner: false }} />
       </body>
     </html>
   );

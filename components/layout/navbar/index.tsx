@@ -4,7 +4,7 @@ import DividerDesktop from 'components/icons/divider-desktop';
 import DividerMobile from 'components/icons/divider-mobile';
 import LogoChickenLegIcon from 'components/icons/logo-chicken-leg';
 import { Menu } from 'lib/shopify/types';
-import Link from 'next/link';
+import { Link } from 'nextjs13-progress';
 import { Suspense } from 'react';
 // import Search, { SearchSkeleton } from './search';
 

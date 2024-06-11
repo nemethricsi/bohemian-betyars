@@ -7,7 +7,7 @@ import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
-import Link from 'next/link';
+import { Link } from 'nextjs13-progress';
 import { Suspense } from 'react';
 
 export async function generateMetadata({
