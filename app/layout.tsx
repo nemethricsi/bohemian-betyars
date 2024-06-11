@@ -50,7 +50,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
-        <Next13NProgress color="#9A38F3" height={4} options={{ showSpinner: false }} />
+        <Next13NProgress color="#9A38F3" height={4} />
       </body>
     </html>
   );
