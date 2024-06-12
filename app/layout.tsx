@@ -1,5 +1,4 @@
 import Footer from 'components/layout/footer';
-import Navbar from 'components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
 import { Oswald } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -47,7 +46,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="en" className={`h-full ${kirakat.variable} ${oswald.variable} font-sans`}>
       <body className="flex h-full flex-col bg-bb-black text-bb-white antialiased selection:bg-bb-yellow">
-        <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
         <Next13NProgress color="#9A38F3" height={4} />
