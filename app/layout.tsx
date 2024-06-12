@@ -1,4 +1,3 @@
-import Footer from 'components/layout/footer';
 import { ensureStartsWith } from 'lib/utils';
 import { Oswald } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -44,10 +43,12 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`h-full ${kirakat.variable} ${oswald.variable} font-sans`}>
+    <html
+      lang="en"
+      className={`h-full ${kirakat.variable} ${oswald.variable} scroll-smooth font-sans`}
+    >
       <body className="flex h-full flex-col bg-bb-black text-bb-white antialiased selection:bg-bb-yellow">
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <main className="relative flex-grow">{children}</main>
         <Next13NProgress color="#9A38F3" height={4} />
       </body>
     </html>
