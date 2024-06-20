@@ -1,6 +1,6 @@
 import Grid from 'components/grid';
 import { ThreeItemGrid } from 'components/grid/three-items';
-import Navbar from 'components/layout/navbar';
+
 import ProductGridItems from 'components/layout/product-grid-items';
 import { getCollectionProducts } from 'lib/shopify';
 
@@ -13,7 +13,6 @@ export default async function WebshopPage() {
 
   return (
     <>
-      <Navbar />
       <div className="py-8 md:py-16">
         <ThreeItemGrid />
         <section className="mx-auto max-w-7xl px-8 pb-4">
