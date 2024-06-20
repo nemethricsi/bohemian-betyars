@@ -49,7 +49,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     >
       <body className="flex h-full flex-col bg-bb-black text-bb-white antialiased selection:bg-bb-yellow">
         <main className="relative flex-grow">{children}</main>
-        <Next13NProgress color="#9A38F3" height={4} />
+        <Next13NProgress color="#EB584B" height={6} />
       </body>
     </html>
   );
