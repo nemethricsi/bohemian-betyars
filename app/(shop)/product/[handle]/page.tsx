@@ -94,7 +94,6 @@ export default async function ProductPage({ params }: { params: { handle: string
               />
             </Suspense>
           </div>
-
           <div className="basis-full lg:basis-2/6">
             <ProductDescription product={product} />
           </div>

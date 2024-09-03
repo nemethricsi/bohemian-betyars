@@ -9,8 +9,6 @@ export default async function WebshopPage() {
     collection: 'hidden-not-featured'
   });
 
-  console.log({ notFeaturedProducts });
-
   return (
     <>
       <div className="py-8 md:py-16">
