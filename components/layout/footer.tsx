@@ -47,10 +47,15 @@ export default async function Footer() {
             </div>
             <div className="flex flex-col gap-1 md:ml-auto md:text-right">
               <p className="font-base font-kirakat uppercase text-bb-black">Bohemian Betyars</p>
-              <a href="#0" className="text-[13px] text-bb-white">
+              <a
+                href="mailto:info@bohemianbetyars.hu?subject=customer%20help"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[13px] text-bb-white"
+              >
                 info@bohemianbetyars.hu
               </a>
-              <a href="#0" className="text-[13px] text-bb-white">
+              <a href="tel:+36305745787" className="text-[13px] text-bb-white">
                 +36 30 574 57 87
               </a>
               <SocialIconsSmall />
