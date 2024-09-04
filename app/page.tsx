@@ -26,8 +26,8 @@ export default async function HomePage() {
         <Image src="/images/BB-pressphoto_3.jpeg" alt="concert" width="1920" height="1080" />
         <div className="absolute inset-0 bg-gradient-to-b from-bb-black via-transparent to-bb-black" />
       </div>
-      <section id="videos" className="relative z-10 p-8 md:-mt-60">
-        <div className="mb-44 hidden justify-center gap-24 self-stretch border border-pink-500 md:flex">
+      <section id="videos" className="relative z-10 p-8 md:-mt-72">
+        <div className="mb-44 hidden justify-center gap-24 self-stretch md:flex">
           <a
             href="https://www.instagram.com/bohemianbetyars"
             target="_blank"
