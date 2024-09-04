@@ -1,5 +1,6 @@
 import FacebookIcon from 'components/icons/facebook';
 import InstagramIcon from 'components/icons/instagram';
+import LogoChickenLegIcon from 'components/icons/logo-chicken-leg';
 import SpotifyIcon from 'components/icons/spotify';
 import YouTubeIcon from 'components/icons/youtube';
 import OnePagerNavbar from 'components/layout/navbar/one-pager';
@@ -66,13 +67,28 @@ export default async function HomePage() {
         </h2>
         <VideoPlayer url="https://www.youtube.com/watch?v=4CLVXnOIWCk" controls light />
       </section>
-      <section id="about" className="p-8">
-        <h2>About</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ipsa obcaecati odio nesciunt
-          placeat quisquam consequuntur ad? Velit reiciendis corrupti fugiat dolorem non doloremque
-          mollitia nihil enim voluptatem vero? Eius.
-        </p>
+      <section
+        id="about"
+        className="mx-auto flex max-w-7xl flex-col items-center gap-1 px-8 py-4 text-bb-yellow md:items-start md:py-8"
+      >
+        <h2 className="font-kirakat">Rólunk</h2>
+        <div className="flex flex-col items-center gap-6 md:flex-row md:gap-32">
+          <p>
+            Evés, ivás, duhajkodás, szerelem és sírva vigadás. A Bohemian Betyars 2009-es működése
+            óta nem csak ország, de világszerte belopta magát egy tekintélyes méretű közönség
+            szívébe speed-folk-freak-punkos, magával ragadó, energikus formációjával. A koncertjeik
+            közvetlen, ösztönből áradó, életigenlő hangulata felszabadítja a közönség érzelmeit, az
+            ember zsigerébe hatol, és minden lábat táncra bír.
+          </p>
+          <LogoChickenLegIcon className="flex-shrink-0 fill-bb-white" />
+          <p>
+            Kezdetekben igazi csavargók módjára járták körül utcazenélve Európát, mára a hazai és
+            európai klubbok és fesztiválok visszajáró vendégei, de megjárták már Kínát, Japánt,
+            Dél-Koreát és az Egyesült Államokat is. Legyen utcán, klubban vagy fesztiválon a
+            Bohemian Betyars örömzenéje, magával ragadó ritmusai kizökkentenek a hétköznapokból, és
+            beledobnak az önkívület mélyvizébe, pont úgy, ahogy ezt kitervelték.
+          </p>
+        </div>
       </section>
       <section id="contact" className="p-8">
         <h2>Contact</h2>
