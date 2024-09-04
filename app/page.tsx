@@ -170,6 +170,7 @@ export default async function HomePage() {
           width="3840"
           height="2160"
           loading="eager"
+          quality={50}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-bb-black via-transparent to-bb-black" />
       </div>
