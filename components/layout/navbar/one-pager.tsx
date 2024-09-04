@@ -33,7 +33,7 @@ export default function OnePagerNavbar() {
         <div className="absolute z-10 flex -translate-x-6 -translate-y-6 justify-center">
           <Image src="/svg/BB_LOGO.svg" unoptimized alt="logo" width="295" height="251" />
         </div>
-        <div className="w-[295]" />
+        <div className="w-[295px]" />
         <a href="#videos">Videos</a>
         <a href="#contact">Contact</a>
       </nav>
