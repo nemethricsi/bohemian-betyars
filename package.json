@@ -1,12 +1,10 @@
 {
   "private": true,
-  "packageManager": "pnpm@8.2.0",
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=8"
+    "node": ">=18"
   },
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -29,11 +27,11 @@
     "@sanity/vision": "^3.57.0",
     "clsx": "^2.1.0",
     "geist": "^1.3.0",
-    "next": "14.2.2",
+    "next": "14.2.7",
     "next-sanity": "^9.4.7",
     "nextjs13-progress": "^1.3.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^18",
+    "react-dom": "^18",
     "react-player": "^2.16.0",
     "sanity": "^3.57.0",
     "styled-components": "^6.1.13"
@@ -42,8 +40,8 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.12",
     "@types/node": "20.12.7",
-    "@types/react": "18.2.79",
-    "@types/react-dom": "18.2.25",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "@vercel/git-hooks": "^1.0.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
