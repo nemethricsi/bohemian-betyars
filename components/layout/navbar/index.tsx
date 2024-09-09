@@ -30,7 +30,7 @@ export default async function Navbar() {
         <div className="flex w-full items-center">
           <div className="flex w-full md:w-1/2">
             <Link
-              href="/"
+              href="/shop"
               className="mr-2 flex w-full flex-col items-center justify-center gap-4 md:w-auto md:flex-row md:gap-5 lg:mr-6"
             >
               <LogoChickenLegIcon className="h-[72px] w-[72px] fill-bb-black md:h-[88px] md:w-[88px]" />
