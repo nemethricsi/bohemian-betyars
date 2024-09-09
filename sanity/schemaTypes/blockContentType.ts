@@ -1,5 +1,5 @@
+import { ImageIcon } from '@sanity/icons';
 import { defineArrayMember, defineType } from 'sanity';
-// import { ImageIcon } from '@sanity/icons'
 
 /**
  * This is the schema type for block content used in the post document type
@@ -62,7 +62,7 @@ export const blockContentType = defineType({
     // as a block type.
     defineArrayMember({
       type: 'image',
-      // icon: ImageIcon,
+      icon: ImageIcon,
       options: { hotspot: true },
       fields: [
         {
