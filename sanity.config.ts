@@ -10,8 +10,12 @@ import { structureTool } from 'sanity/structure';
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { schema } from '@/sanity/schemaTypes';
-import { structure } from '@/sanity/structurConfig';
+import { structure } from '@/sanity/structureConfig';
 import { apiVersion, dataset, projectId } from './sanity/env';
+
+const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
+
+export const singletonTypes = new Set(['homePage']);
 
 export default defineConfig({
   basePath: '/admin',
@@ -24,5 +28,11 @@ export default defineConfig({
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion })
-  ]
+  ],
+  document: {
+    actions: (input, context) =>
+      singletonTypes.has(context.schemaType)
+        ? input.filter(({ action }) => action && singletonActions.has(action))
+        : input
+  }
 });

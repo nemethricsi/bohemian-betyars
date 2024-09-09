@@ -1,11 +1,9 @@
-import { type SchemaTypeDefinition } from 'sanity';
+import { singletonTypes } from '@/sanity.config';
+import type { SchemaPluginOptions } from 'sanity';
 
-import { authorType } from './authorType';
-import { blockContentType } from './blockContentType';
-import { categoryType } from './categoryType';
 import { homePageType } from './homePageType';
-import { postType } from './postType';
 
-export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blockContentType, categoryType, postType, authorType, homePageType]
+export const schema: SchemaPluginOptions = {
+  types: [homePageType],
+  templates: (templates) => templates.filter(({ schemaType }) => !singletonTypes.has(schemaType))
 };
