@@ -7,6 +7,7 @@ import LogoBohemianBetyars from 'components/icons/logo-bb';
 import SpotifyIcon from 'components/icons/spotify';
 import YouTubeIcon from 'components/icons/youtube';
 import { getMenu } from 'lib/shopify';
+import { Link } from 'nextjs13-progress';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
@@ -26,9 +27,9 @@ export default async function Footer() {
           <div className="flex flex-1 flex-col-reverse gap-8 md:flex-row md:gap-28">
             <div className="flex flex-col gap-1">
               <p className="font-base font-kirakat uppercase text-bb-black">Információk</p>
-              <a href="#0" className="text-[13px] text-bb-white">
+              <Link href="/" className="text-[13px] text-bb-white">
                 Főoldal
-              </a>
+              </Link>
               <a href="#0" className="text-[13px] text-bb-white">
                 Felhasználói feltételek
               </a>

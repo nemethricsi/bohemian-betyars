@@ -26,7 +26,7 @@ export default async function HomePage() {
     <>
       <OnePagerNavbar />
       <div className="relative">
-        <Image src="/images/BB-pressphoto_3.jpeg" alt="concert" width="3840" height="2160" />
+        <Image src="/images/BB-pressphoto_3.jpg" alt="concert" width="3840" height="2160" />
         <div className="absolute inset-0 bg-gradient-to-b from-bb-black via-transparent to-bb-black" />
       </div>
       <section id="videos" className="relative z-10 p-8 md:-mt-72">
