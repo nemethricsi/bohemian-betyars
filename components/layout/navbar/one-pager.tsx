@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 
 const menu: Menu[] = [
   {
-    title: 'About',
+    title: 'Rólunk',
     path: '#about'
   },
   {
@@ -15,11 +15,11 @@ const menu: Menu[] = [
     path: '/shop'
   },
   {
-    title: 'Videos',
+    title: 'Videók',
     path: '#videos'
   },
   {
-    title: 'Contact',
+    title: 'Kontakt',
     path: '#contact'
   }
 ];
@@ -28,14 +28,14 @@ export default function OnePagerNavbar() {
   return (
     <>
       <nav className="relative hidden justify-center gap-12  p-8 pt-16 font-kirakat text-xl text-bb-yellow md:flex">
-        <a href="#about">About</a>
+        <a href="#about">Rólunk</a>
         <Link href="/shop">Shop</Link>
         <div className="absolute z-10 flex -translate-x-6 -translate-y-6 justify-center">
           <Image src="/svg/BB_LOGO.svg" unoptimized alt="logo" width="295" height="251" />
         </div>
         <div className="w-[295px]" />
-        <a href="#videos">Videos</a>
-        <a href="#contact">Contact</a>
+        <a href="#videos">Videók</a>
+        <a href="#contact">Kontakt</a>
       </nav>
       <div className="relative block flex-none md:hidden">
         <LogoBohemianBetyars className="absolute left-1/2 top-5 z-10 h-auto w-40 -translate-x-1/2 fill-bb-white md:hidden" />
