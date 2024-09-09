@@ -29,15 +29,13 @@ export default async function Navbar() {
       </div> */}
         <div className="flex w-full items-center">
           <div className="flex w-full md:w-1/2">
-            <div className="flex w-full flex-col items-center justify-center gap-4 md:flex-row md:justify-start md:gap-5">
-              <Link
-                href="/"
-                className="flex w-full flex-col items-center justify-center gap-4 md:w-auto md:flex-row md:gap-5"
-              >
-                <LogoChickenLegIcon className="h-[72px] w-[72px] fill-bb-black md:h-[88px] md:w-[88px]" />
-              </Link>
+            <Link
+              href="/"
+              className="mr-2 flex w-full flex-col items-center justify-center gap-4 md:w-auto md:flex-row md:gap-5 lg:mr-6"
+            >
+              <LogoChickenLegIcon className="h-[72px] w-[72px] fill-bb-black md:h-[88px] md:w-[88px]" />
               <h1 className="font-kirakat text-xl uppercase">Bohemian Betyars webshop</h1>
-            </div>
+            </Link>
             {/* {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">
             {menu.map((item: Menu) => (
