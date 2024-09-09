@@ -18,9 +18,19 @@ export const homePageType = defineType({
       }
     }),
     defineField({
+      type: 'string',
+      name: 'videoSectionTitle',
+      title: 'Video section title'
+    }),
+    defineField({
       name: 'youtube',
       type: 'url',
       title: 'Home Page Youtube video URL'
+    }),
+    defineField({
+      type: 'string',
+      name: 'aboutTitle',
+      title: 'About title'
     }),
     defineField({
       type: 'text',
@@ -31,6 +41,22 @@ export const homePageType = defineType({
       type: 'text',
       name: 'aboutSecondPart',
       title: 'About second part'
+    }),
+    defineField({
+      type: 'string',
+      name: 'contactTitle',
+      title: 'Contact title'
+    }),
+    defineField({
+      type: 'array',
+      name: 'contacts',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'contactType' }]
+        }
+      ],
+      validation: (Rule) => Rule.required().length(2).error('You must select exactly 2 contacts')
     }),
     defineField({
       name: 'footerImage',

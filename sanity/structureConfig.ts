@@ -11,6 +11,7 @@ export const structure: StructureResolver = (S) =>
         .icon(HomeIcon)
         .id('homePage')
         .child(S.document().schemaType('homePage').documentId('homePage')),
+      S.divider(),
       ...S.documentTypeListItems().filter(
         (item) => item.getId() && !['homePage'].includes(item.getId()!)
       )
