@@ -33,9 +33,9 @@ export default async function Footer() {
               <a href="#0" className="text-[13px] text-bb-white">
                 Felhasználói feltételek
               </a>
-              <a href="#0" className="text-[13px] text-bb-white">
+              <Link href="/#contact" className="text-[13px] text-bb-white">
                 Kapcsolat
-              </a>
+              </Link>
             </div>
             <div className="flex flex-col gap-1">
               <p className="font-base font-kirakat uppercase text-bb-black">Rendelés</p>

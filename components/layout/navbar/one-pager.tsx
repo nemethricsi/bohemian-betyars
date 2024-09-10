@@ -19,7 +19,7 @@ const menu: Menu[] = [
     path: '#videos'
   },
   {
-    title: 'Kontakt',
+    title: 'Kapcsolat',
     path: '#contact'
   }
 ];
@@ -35,7 +35,7 @@ export default function OnePagerNavbar() {
         </div>
         <div className="w-[295px]" />
         <a href="#videos">Videók</a>
-        <a href="#contact">Kontakt</a>
+        <a href="#contact">Kapcsolat</a>
       </nav>
       <div className="relative block flex-none md:hidden">
         <LogoBohemianBetyars className="absolute left-1/2 top-5 z-10 h-auto w-40 -translate-x-1/2 fill-bb-white md:hidden" />

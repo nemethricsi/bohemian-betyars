@@ -96,7 +96,7 @@ export default async function HomePage() {
         id="contact"
         className="mx-auto flex max-w-7xl flex-col items-start gap-4 p-8 text-bb-yellow"
       >
-        <h2 className="font-kirakat">Kontakt</h2>
+        <h2 className="font-kirakat">Kapcsolat</h2>
         <div className="flex w-full justify-between">
           <div className="flex flex-col gap-5">
             <div className="flex flex-col">
