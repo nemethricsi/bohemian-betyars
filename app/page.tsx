@@ -1,3 +1,4 @@
+import TikTokIcon from '@/components/icons/tiktok';
 import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/image';
 import FacebookIcon from 'components/icons/facebook';
@@ -92,6 +93,14 @@ export default async function HomePage() {
           >
             <SpotifyIcon className="h-10 w-10 stroke-bb-yellow" lineFill="#1A1E1E" />
           </a>
+          <a
+            href="https://www.tiktok.com/@bohemianbetyars"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-10 w-10 items-center justify-center"
+          >
+            <TikTokIcon className="h-10 w-10 stroke-bb-yellow" />
+          </a>
         </div>
         <h2 className="mb-3 text-center font-kirakat text-lg text-bb-yellow md:text-xl">
           {homePageData.videoSectionTitle}
@@ -115,7 +124,7 @@ export default async function HomePage() {
       >
         <h2 className="font-kirakat">{homePageData.contactTitle}</h2>
         <div className="flex w-full justify-between">
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-8">
             <div className="flex flex-col">
               <p>{homePageData.contacts[0].title}</p>
               <p className="font-light">{homePageData.contacts[0].fullName}</p>
@@ -167,6 +176,15 @@ export default async function HomePage() {
             >
               <SpotifyIcon className="h-6 w-6 stroke-bb-yellow" />
               <span className="hidden md:flex">spotify.com/bohemianbetyars</span>
+            </a>
+            <a
+              href="https://www.tiktok.com/@bohemianbetyars"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2"
+            >
+              <TikTokIcon className="h-6 w-6 stroke-bb-yellow" />
+              <span className="hidden md:flex">tiktok.com/@bohemianbetyars</span>
             </a>
           </div>
           <div className="hidden md:flex">
