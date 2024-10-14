@@ -21,7 +21,7 @@ export default async function Footer() {
 
   return (
     <footer className="relative bg-bb-red">
-      <FeatherIllu className="absolute right-6 top-32 h-auto w-48 -rotate-[140deg] md:right-64 md:top-16 md:hidden md:-rotate-180 lg:block" />
+      <FeatherIllu className="absolute right-6 top-32 h-auto w-48 -rotate-[140deg] md:right-64 md:top-16 md:hidden md:-rotate-180 lg:right-80 lg:block" />
       <div className="flex flex-col items-center justify-center p-6 text-bb-black md:p-12">
         <div className="flex gap-5 self-stretch md:pb-6">
           <LogoBohemianBetyars className="hidden h-auto w-48 fill-bb-white md:block" />
