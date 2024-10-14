@@ -8,6 +8,7 @@ import SpotifyIcon from 'components/icons/spotify';
 import YouTubeIcon from 'components/icons/youtube';
 import { getMenu } from 'lib/shopify';
 import { Link } from 'nextjs13-progress';
+import TikTokIcon from '../icons/tiktok';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
@@ -20,7 +21,7 @@ export default async function Footer() {
 
   return (
     <footer className="relative bg-bb-red">
-      <FeatherIllu className="absolute right-6 top-32 h-auto w-48 -rotate-[140deg] md:right-64 md:top-16 md:hidden md:-rotate-180 lg:block" />
+      <FeatherIllu className="absolute right-6 top-32 h-auto w-48 -rotate-[140deg] md:right-64 md:top-16 md:hidden md:-rotate-180 lg:right-80 lg:block" />
       <div className="flex flex-col items-center justify-center p-6 text-bb-black md:p-12">
         <div className="flex gap-5 self-stretch md:pb-6">
           <LogoBohemianBetyars className="hidden h-auto w-48 fill-bb-white md:block" />
@@ -63,7 +64,7 @@ export default async function Footer() {
             </div>
           </div>
         </div>
-        <div className="mb-5 mt-12 flex justify-center gap-14 self-stretch md:hidden">
+        <div className="mb-5 mt-12 flex justify-center gap-12 self-stretch md:hidden">
           <a
             href="https://www.instagram.com/bohemianbetyars"
             target="_blank"
@@ -95,6 +96,14 @@ export default async function Footer() {
             className="flex h-9 w-9 items-center justify-center"
           >
             <SpotifyIcon className="h-6 w-6 stroke-bb-black" lineFill="#1A1E1E" />
+          </a>
+          <a
+            href="https://www.tiktok.com/@bohemianbetyars"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-9 w-9 items-center justify-center"
+          >
+            <TikTokIcon className="h-6 w-6 stroke-bb-black" />
           </a>
         </div>
         <div className="text-sm font-light uppercase">
@@ -141,6 +150,14 @@ const SocialIconsSmall = () => {
         className="flex h-9 w-9 items-center justify-center"
       >
         <SpotifyIcon className="h-6 w-6 stroke-bb-white" lineFill="#fff" />
+      </a>
+      <a
+        href="https://www.tiktok.com/@bohemianbetyars"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex h-9 w-9 items-center justify-center"
+      >
+        <TikTokIcon className="h-6 w-6 stroke-bb-white" />
       </a>
     </div>
   );

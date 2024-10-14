@@ -27,29 +27,37 @@ export default async function Navbar() {
         <MobileMenu menu={menu} />
         </Suspense>
       </div> */}
-        <div className="flex w-full items-center">
-          <div className="flex w-full md:w-1/2">
-            <Link
-              href="/shop"
-              className="mr-2 flex w-full flex-col items-center justify-center gap-4 md:w-auto md:flex-row md:gap-5 lg:mr-6"
-            >
-              <LogoChickenLegIcon className="h-[72px] w-[72px] fill-bb-black md:h-[88px] md:w-[88px]" />
-              <h1 className="font-kirakat text-xl uppercase">Bohemian Betyars webshop</h1>
+        <div className="flex w-full items-center justify-center ">
+          <div className="flex w-full flex-col items-center justify-center gap-5 md:w-1/2 md:flex-row">
+            <Link href="/" className="hidden md:inline">
+              <h2 className="font-kirakat text-xl uppercase">Főoldal</h2>
             </Link>
-            {/* {menu.length ? (
-            <ul className="hidden gap-6 text-sm md:flex md:items-center">
-            {menu.map((item: Menu) => (
-              <li key={item.title}>
-              <Link
-              href={item.path}
-              className="text-bb-black underline-offset-4 hover:underline"
-              >
-              {item.title}
+            <LogoChickenLegIcon className="h-[72px] w-[72px] flex-shrink-0 fill-bb-black md:h-28 md:w-28" />
+            <div className="flex items-center gap-8">
+              <Link href="/" className="md:hidden">
+                <h2 className="font-kirakat text-xl uppercase">Főoldal</h2>
               </Link>
-              </li>
-            ))}
-            </ul>
-          ) : null} */}
+              <Link
+                href="/shop"
+                className="flex w-full items-center justify-center gap-4 md:w-auto md:gap-5 lg:mr-6"
+              >
+                <h2 className="font-kirakat text-xl uppercase">Webshop</h2>
+              </Link>
+            </div>
+            {/* {menu.length ? (
+              <ul className="hidden gap-6 text-sm md:flex md:items-center">
+                {menu.map((item: Menu) => (
+                  <li key={item.title}>
+                    <Link
+                      href={item.path}
+                      className="text-bb-black underline-offset-4 hover:underline"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null} */}
           </div>
           {/* <div className="hidden justify-center md:flex md:w-1/3">
           <Suspense fallback={<SearchSkeleton />}>
