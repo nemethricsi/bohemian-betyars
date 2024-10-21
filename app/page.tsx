@@ -17,7 +17,8 @@ export const revalidate = 60;
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
 export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
+  description:
+    'Evés, ivás, duhajkodás, szerelem és sírva vigadás. A Bohemian Betyars 2009-es működése óta nem csak ország, de világszerte belopta magát egy tekintélyes méretű közönség szívébe speed-folk-freak-punkos, magával ragadó, energikus formációjával.',
   openGraph: {
     type: 'website'
   }
