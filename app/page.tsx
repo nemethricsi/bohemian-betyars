@@ -45,8 +45,6 @@ export default async function HomePage() {
   const currentYear = new Date().getFullYear();
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
-  console.log({ homePageData });
-
   return (
     <>
       <OnePagerNavbar />
