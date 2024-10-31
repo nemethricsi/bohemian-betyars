@@ -31,21 +31,39 @@ export default async function Footer() {
               <Link href="/" className="text-[13px] text-bb-white">
                 Főoldal
               </Link>
-              <a href="#0" className="text-[13px] text-bb-white">
+              {/* <a
+                href="/documents/altalanos-szerzodesi-feltetelek.pdf"
+                className="text-[13px] text-bb-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Felhasználói feltételek
-              </a>
+              </a> */}
               <Link href="/#contact" className="text-[13px] text-bb-white">
                 Kapcsolat
               </Link>
             </div>
             <div className="flex flex-col gap-1">
               <p className="font-base font-kirakat uppercase text-bb-black">Rendelés</p>
-              <a href="#0" className="text-[13px] text-bb-white">
+              <a
+                href="/documents/altalanos-szerzodesi-feltetelek.pdf"
+                className="text-[13px] text-bb-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Felhasználói feltételek
+              </a>
+              <a
+                href="/documents/adatkezelesi-nyilatkozat.pdf"
+                className="text-[13px] text-bb-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Adatvédelmi szabályzat
               </a>
-              <a href="#0" className="text-[13px] text-bb-white">
+              {/* <a href="#0" className="text-[13px] text-bb-white">
                 Fizetés, szállítás
-              </a>
+              </a> */}
             </div>
             <div className="flex flex-col gap-1 md:ml-auto md:text-right">
               <p className="font-base font-kirakat uppercase text-bb-black">Bohemian Betyars</p>
