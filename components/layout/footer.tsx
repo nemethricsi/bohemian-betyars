@@ -31,14 +31,6 @@ export default async function Footer() {
               <Link href="/" className="text-[13px] text-bb-white">
                 Főoldal
               </Link>
-              {/* <a
-                href="/documents/altalanos-szerzodesi-feltetelek.pdf"
-                className="text-[13px] text-bb-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Felhasználói feltételek
-              </a> */}
               <Link href="/#contact" className="text-[13px] text-bb-white">
                 Kapcsolat
               </Link>
@@ -54,7 +46,7 @@ export default async function Footer() {
                 Felhasználói feltételek
               </a>
               <a
-                href="/documents/adatkezelesi-nyilatkozat.pdf"
+                href="/documents/adatkezeles.pdf"
                 className="text-[13px] text-bb-white"
                 target="_blank"
                 rel="noopener noreferrer"
