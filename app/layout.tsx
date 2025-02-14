@@ -47,7 +47,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       lang="en"
       className={`h-full ${kirakat.variable} ${oswald.variable} scroll-smooth font-sans`}
     >
-      <body className="flex h-full flex-col bg-bb-black text-bb-white antialiased selection:bg-bb-yellow">
+      <body className="flex h-full flex-col bg-bb-black text-bb-white antialiased selection:bg-bb-purple">
         <main className="relative flex-grow">{children}</main>
         <Next13NProgress color="#EB584B" height={6} />
       </body>
