@@ -16,7 +16,7 @@ import { apiVersion, dataset, projectId } from './sanity/env';
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
 
-export const singletonTypes = new Set(['homePage']);
+export const singletonTypes = new Set(['homePage', 'indexPage']);
 
 export default defineConfig({
   basePath: '/admin',
@@ -34,7 +34,7 @@ export default defineConfig({
         { id: 'hu', title: 'Magyar' },
         { id: 'en', title: 'English' }
       ],
-      fieldTypes: ['string'],
+      fieldTypes: ['string', 'text'],
       defaultLanguages: ['hu']
     })
   ],
