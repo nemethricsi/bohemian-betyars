@@ -10,6 +10,7 @@ import YouTubeIcon from 'components/icons/youtube';
 import OnePagerNavbar from 'components/layout/navbar/one-pager';
 import SpotifyEmbedPlayer from 'components/spotify-embed-player';
 import VideoPlayer from 'components/video-player';
+import { groq } from 'next-sanity';
 import Image from 'next/image';
 
 export const revalidate = 60;
@@ -26,7 +27,7 @@ export const metadata = {
 
 export default async function HomePage() {
   const homePageData = await client.fetch(
-    `*[_id == "homePage"][0]{
+    groq`*[_id == "homePage"][0]{
       headerImage, 
       footerImage, 
       videoSectionTitle, 
