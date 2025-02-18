@@ -9,11 +9,6 @@ export const structure: StructureResolver = (S) =>
       S.listItem()
         .title('Home Page')
         .icon(HomeIcon)
-        .id('homePage')
-        .child(S.document().schemaType('homePage').documentId('homePage')),
-      S.listItem()
-        .title('Index Page')
-        .icon(HomeIcon)
         .id('indexPage')
         .child(S.document().schemaType('indexPage').documentId('indexPage')),
       S.listItem()
