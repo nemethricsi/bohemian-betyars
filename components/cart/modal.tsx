@@ -1,12 +1,12 @@
 'use client';
 
+import { Link } from '@/components/link-wrapper';
+import Price from '@/components/price';
+import { DEFAULT_OPTION } from '@/lib/constants';
+import type { Cart } from '@/lib/shopify/types';
+import { createUrl } from '@/lib/utils';
 import { Dialog, Transition } from '@headlessui/react';
-import Price from 'components/price';
-import { DEFAULT_OPTION } from 'lib/constants';
-import type { Cart } from 'lib/shopify/types';
-import { createUrl } from 'lib/utils';
 import Image from 'next/image';
-import { Link } from 'nextjs13-progress';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import CloseCart from './close-cart';
 import { DeleteItemButton } from './delete-item-button';
@@ -81,19 +81,24 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                     width="64"
                     height="64"
                   />
-                  <p className="mt-6 text-center text-2xl font-bold">Üres a kosarad</p>
+                  <p className="mt-6 text-center text-2xl font-bold">
+                    Üres a kosarad
+                  </p>
                 </div>
               ) : (
                 <div className="flex h-full flex-col justify-between overflow-hidden p-1">
                   <ul className="flex-grow overflow-auto py-4">
                     {cart.lines.map((item, i) => {
-                      const merchandiseSearchParams = {} as MerchandiseSearchParams;
+                      const merchandiseSearchParams =
+                        {} as MerchandiseSearchParams;
 
-                      item.merchandise.selectedOptions.forEach(({ name, value }) => {
-                        if (value !== DEFAULT_OPTION) {
-                          merchandiseSearchParams[name.toLowerCase()] = value;
+                      item.merchandise.selectedOptions.forEach(
+                        ({ name, value }) => {
+                          if (value !== DEFAULT_OPTION) {
+                            merchandiseSearchParams[name.toLowerCase()] = value;
+                          }
                         }
-                      });
+                      );
 
                       const merchandiseUrl = createUrl(
                         `/product/${item.merchandise.product.handle}`,
@@ -101,7 +106,10 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                       );
 
                       return (
-                        <li key={i} className="flex w-full flex-col border-b border-bb-black">
+                        <li
+                          key={i}
+                          className="flex w-full flex-col border-b border-bb-black"
+                        >
                           <div className="relative flex w-full flex-row justify-between px-1 py-4">
                             <div className="absolute z-40 -mt-2 ml-[55px]">
                               <DeleteItemButton item={item} />
@@ -117,10 +125,12 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                                   width={64}
                                   height={64}
                                   alt={
-                                    item.merchandise.product.featuredImage.altText ||
-                                    item.merchandise.product.title
+                                    item.merchandise.product.featuredImage
+                                      .altText || item.merchandise.product.title
                                   }
-                                  src={item.merchandise.product.featuredImage.url}
+                                  src={
+                                    item.merchandise.product.featuredImage.url
+                                  }
                                 />
                               </div>
 
@@ -139,14 +149,24 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                               <Price
                                 className="flex justify-end space-y-2 text-right text-sm"
                                 amount={item.cost.totalAmount.amount}
-                                currencyCode={item.cost.totalAmount.currencyCode}
+                                currencyCode={
+                                  item.cost.totalAmount.currencyCode
+                                }
                               />
                               <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-bb-black">
-                                <EditItemQuantityButton item={item} type="minus" />
+                                <EditItemQuantityButton
+                                  item={item}
+                                  type="minus"
+                                />
                                 <p className="w-6 text-center">
-                                  <span className="w-full text-sm">{item.quantity}</span>
+                                  <span className="w-full text-sm">
+                                    {item.quantity}
+                                  </span>
                                 </p>
-                                <EditItemQuantityButton item={item} type="plus" />
+                                <EditItemQuantityButton
+                                  item={item}
+                                  type="plus"
+                                />
                               </div>
                             </div>
                           </div>
@@ -157,7 +177,9 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                   <div className="py-4 text-sm text-bb-black">
                     <div className="mb-3 flex items-center justify-between border-b border-bb-black pb-1 pt-1">
                       <p className="font-light uppercase">Szállítás</p>
-                      <p className="text-right text-base">A kiszállítás módjától függ</p>
+                      <p className="text-right text-base">
+                        A kiszállítás módjától függ
+                      </p>
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-bb-black pb-1 pt-1">
                       <p className="font-light uppercase">Összesen</p>

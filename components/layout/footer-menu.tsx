@@ -1,9 +1,9 @@
 'use client';
 
+import { Link } from '@/components/link-wrapper';
 import clsx from 'clsx';
 import { Menu } from 'lib/shopify/types';
 import { usePathname } from 'next/navigation';
-import { Link } from 'nextjs13-progress';
 import { useEffect, useState } from 'react';
 
 const FooterMenuItem = ({ item }: { item: Menu }) => {

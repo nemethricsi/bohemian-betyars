@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-
-import { GridTileImage } from 'components/grid/tile';
-import { Gallery } from 'components/product/gallery';
-import { ProductDescription } from 'components/product/product-description';
-import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
-import { getProduct, getProductRecommendations } from 'lib/shopify';
-import { Image } from 'lib/shopify/types';
-import { Link } from 'nextjs13-progress';
 import { Suspense } from 'react';
+
+import { GridTileImage } from '@/components/grid/tile';
+import { Link } from '@/components/link-wrapper';
+import { Gallery } from '@/components/product/gallery';
+import { ProductDescription } from '@/components/product/product-description';
+import { HIDDEN_PRODUCT_TAG } from '@/lib/constants';
+import { getProduct, getProductRecommendations } from '@/lib/shopify';
+import { Image } from '@/lib/shopify/types';
 
 export async function generateMetadata({
   params
@@ -48,7 +48,11 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProductPage({ params }: { params: { handle: string } }) {
+export default async function ProductPage({
+  params
+}: {
+  params: { handle: string };
+}) {
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
@@ -118,7 +122,10 @@ async function RelatedProducts({ id }: { id: string }) {
             key={product.handle}
             className="aspect-square w-full flex-none min-[475px]:w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
           >
-            <Link className="relative h-full w-full" href={`/product/${product.handle}`}>
+            <Link
+              className="relative h-full w-full"
+              href={`/product/${product.handle}`}
+            >
               <GridTileImage
                 alt={product.title}
                 label={{

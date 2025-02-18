@@ -1,7 +1,7 @@
+import { Link } from '@/components/link-wrapper';
 import { GridTileImage } from 'components/grid/tile';
 import { getCollectionProducts } from 'lib/shopify';
 import type { Product } from 'lib/shopify/types';
-import { Link } from 'nextjs13-progress';
 
 function ThreeItemGridItem({
   item,
@@ -14,14 +14,23 @@ function ThreeItemGridItem({
 }) {
   return (
     <div
-      className={size === 'full' ? 'md:col-span-4 md:row-span-2' : 'md:col-span-2 md:row-span-1'}
+      className={
+        size === 'full'
+          ? 'md:col-span-4 md:row-span-2'
+          : 'md:col-span-2 md:row-span-1'
+      }
     >
-      <Link className="relative block aspect-square h-full w-full" href={`/product/${item.handle}`}>
+      <Link
+        className="relative block aspect-square h-full w-full"
+        href={`/product/${item.handle}`}
+      >
         <GridTileImage
           src={item.featuredImage.url}
           fill
           sizes={
-            size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'
+            size === 'full'
+              ? '(min-width: 768px) 66vw, 100vw'
+              : '(min-width: 768px) 33vw, 100vw'
           }
           priority={priority}
           alt={item.title}

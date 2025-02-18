@@ -17,7 +17,7 @@ export const revalidate = 60;
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
-export default async function TestPage({
+export default async function IndexPage({
   params
 }: {
   params: Promise<{ lang: 'hu' | 'en' }>;
@@ -50,7 +50,7 @@ export default async function TestPage({
 
   return (
     <>
-      <OnePagerNavbar />
+      <OnePagerNavbar locale={lang} />
       <div className="relative">
         <Image
           src={urlFor(pageData.headerImage).url()}

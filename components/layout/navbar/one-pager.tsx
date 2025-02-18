@@ -1,12 +1,13 @@
+import { Link } from '@/components/link-wrapper';
 import { defineQuery } from 'next-sanity';
-import Image from 'next/image';
-import { Link } from 'nextjs13-progress';
 import { Suspense } from 'react';
 
+import LogoBohemianBetyars from '@/components/icons/logo-bb';
+import MobileMenu from '@/components/layout/navbar/mobile-menu';
+import { LocaleSwitcher } from '@/components/locale-switcher';
+import type { Locale } from '@/i18n-config';
 import { client } from '@/sanity/lib/client';
-import LogoBohemianBetyars from 'components/icons/logo-bb';
-import MobileMenu from 'components/layout/navbar/mobile-menu';
-import { Menu } from 'lib/shopify/types';
+import type { Menu } from 'lib/shopify/types';
 
 type MenuItem = { path: string; title: string };
 type Response = {
@@ -35,8 +36,8 @@ const query = defineQuery(`*[_id == "menuItems"][0]{
   }
 }`);
 
-export default async function OnePagerNavbar() {
-  const data = await client.fetch<Response>(query, { locale: 'hu' });
+export default async function OnePagerNavbar({ locale }: { locale: Locale }) {
+  const data = await client.fetch<Response>(query, { locale });
 
   const mobileMenu: Menu[] = [
     { title: data.aboutUs.title, path: data.aboutUs.path },
@@ -48,16 +49,11 @@ export default async function OnePagerNavbar() {
   return (
     <>
       <nav className="relative hidden justify-center gap-12  p-8 pt-16 font-kirakat text-xl text-bb-yellow md:flex">
+        <LocaleSwitcher className="absolute left-44" />
         <a href={data.aboutUs.path}>{data.aboutUs.title}</a>
         <Link href={data.shop.path}>{data.shop.title}</Link>
         <div className="absolute z-10 flex -translate-x-6 -translate-y-6 justify-center">
-          <Image
-            src="/svg/BB_LOGO.svg"
-            unoptimized
-            alt="logo"
-            width="295"
-            height="251"
-          />
+          <LogoBohemianBetyars className="hidden h-[251px] w-[295px] fill-bb-white md:block" />
         </div>
         <div className="w-[295px]" />
         <a href={data.videos.path}>{data.videos.title}</a>
