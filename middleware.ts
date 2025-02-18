@@ -32,7 +32,8 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/admin') ||
     pathname.startsWith('/documents') ||
     pathname.startsWith('/images') ||
-    pathname.startsWith('/svg')
+    pathname.startsWith('/svg') ||
+    pathname.startsWith('/sitemap')
   ) {
     return;
   }
