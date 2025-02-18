@@ -33,7 +33,8 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/documents') ||
     pathname.startsWith('/images') ||
     pathname.startsWith('/svg') ||
-    pathname.startsWith('/sitemap')
+    pathname.startsWith('/sitemap') ||
+    pathname.startsWith('/opengraph')
   ) {
     return;
   }
