@@ -35,8 +35,8 @@ export default async function IndexPage({
       "contactTitle": contactTitle[_key == $locale][0].value,
       "contacts": contacts[]-> {
         _id,
-        title,
-        fullName,
+        "title": title[_key == $locale][0].value,
+        "fullName": fullName[_key == $locale][0].value,
         phoneNumber
       }
     }`,
@@ -44,6 +44,8 @@ export default async function IndexPage({
       locale: lang
     }
   );
+
+  console.log(pageData.contacts);
 
   const currentYear = new Date().getFullYear();
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
