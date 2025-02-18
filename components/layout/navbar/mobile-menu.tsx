@@ -5,6 +5,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
 
+import { LocaleSwitcher } from '@/components/locale-switcher';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Menu } from 'lib/shopify/types';
 
@@ -89,6 +90,9 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                     ))}
                   </ul>
                 ) : null}
+                <div className="flex justify-center py-4">
+                  <LocaleSwitcher />
+                </div>
               </div>
             </Dialog.Panel>
           </Transition.Child>

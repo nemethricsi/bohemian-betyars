@@ -48,10 +48,14 @@ export default async function OnePagerNavbar({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <nav className="relative hidden justify-center gap-12  p-8 pt-16 font-kirakat text-xl text-bb-yellow md:flex">
-        <LocaleSwitcher className="absolute left-44" />
-        <a href={data.aboutUs.path}>{data.aboutUs.title}</a>
-        <Link href={data.shop.path}>{data.shop.title}</Link>
+      <nav className="relative hidden justify-center gap-12 p-8 pt-16 font-kirakat text-xl text-bb-yellow md:flex">
+        <div className="relative flex items-center gap-12">
+          <div className="absolute -left-20 -top-1">
+            <LocaleSwitcher />
+          </div>
+          <a href={data.aboutUs.path}>{data.aboutUs.title}</a>
+          <Link href={data.shop.path}>{data.shop.title}</Link>
+        </div>
         <div className="absolute z-10 flex -translate-x-6 -translate-y-6 justify-center">
           <LogoBohemianBetyars className="hidden h-[251px] w-[295px] fill-bb-white md:block" />
         </div>
