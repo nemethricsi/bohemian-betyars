@@ -3,12 +3,12 @@ import { Oswald } from 'next/font/google';
 import localFont from 'next/font/local';
 import { Next13NProgress } from 'nextjs13-progress';
 import { ReactNode } from 'react';
-import '../globals.css';
+import './globals.css';
 
 const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' });
 
 const kirakat = localFont({
-  src: '../kirakat-webfont.woff2',
+  src: './kirakat-webfont.woff2',
   display: 'swap',
   weight: '400',
   variable: '--font-kirakat'
