@@ -45,8 +45,6 @@ export default async function IndexPage({
     }
   );
 
-  console.log(pageData.contacts);
-
   const currentYear = new Date().getFullYear();
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
