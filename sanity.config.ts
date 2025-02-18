@@ -6,6 +6,7 @@
 
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
+import { internationalizedArray } from 'sanity-plugin-internationalized-array';
 import { structureTool } from 'sanity/structure';
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
@@ -15,7 +16,7 @@ import { apiVersion, dataset, projectId } from './sanity/env';
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
 
-export const singletonTypes = new Set(['homePage']);
+export const singletonTypes = new Set(['homePage', 'indexPage']);
 
 export default defineConfig({
   basePath: '/admin',
@@ -27,7 +28,15 @@ export default defineConfig({
     structureTool({ structure }),
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({ defaultApiVersion: apiVersion })
+    visionTool({ defaultApiVersion: apiVersion }),
+    internationalizedArray({
+      languages: [
+        { id: 'hu', title: 'Magyar' },
+        { id: 'en', title: 'English' }
+      ],
+      fieldTypes: ['string', 'text'],
+      defaultLanguages: ['hu']
+    })
   ],
   document: {
     actions: (input, context) =>

@@ -3,7 +3,9 @@ import { Oswald } from 'next/font/google';
 import localFont from 'next/font/local';
 import { Next13NProgress } from 'nextjs13-progress';
 import { ReactNode } from 'react';
+
 import './globals.css';
+import '/node_modules/flag-icons/css/flag-icons.min.css';
 
 const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' });
 
@@ -18,8 +20,12 @@ const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
   : 'http://localhost:3000';
-const twitterCreator = TWITTER_CREATOR ? ensureStartsWith(TWITTER_CREATOR, '@') : undefined;
-const twitterSite = TWITTER_SITE ? ensureStartsWith(TWITTER_SITE, 'https://') : undefined;
+const twitterCreator = TWITTER_CREATOR
+  ? ensureStartsWith(TWITTER_CREATOR, '@')
+  : undefined;
+const twitterSite = TWITTER_SITE
+  ? ensureStartsWith(TWITTER_SITE, 'https://')
+  : undefined;
 
 export const metadata = {
   metadataBase: new URL(baseUrl),
@@ -41,13 +47,18 @@ export const metadata = {
     })
 };
 
-export default async function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children
+}: {
+  children: ReactNode;
+}) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`h-full ${kirakat.variable} ${oswald.variable} scroll-smooth font-sans`}
     >
-      <body className="flex h-full flex-col bg-bb-black text-bb-white antialiased selection:bg-bb-yellow">
+      <body className="flex h-full flex-col bg-bb-black text-bb-white antialiased selection:bg-bb-purple">
         <main className="relative flex-grow">{children}</main>
         <Next13NProgress color="#EB584B" height={6} />
       </body>

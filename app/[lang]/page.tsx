@@ -1,57 +1,59 @@
+import FacebookIcon from '@/components/icons/facebook';
+import FeatherIllu from '@/components/icons/feather';
+import InstagramIcon from '@/components/icons/instagram';
+import LogoChickenLegIcon from '@/components/icons/logo-chicken-leg';
+import SpotifyIcon from '@/components/icons/spotify';
 import TikTokIcon from '@/components/icons/tiktok';
+import YouTubeIcon from '@/components/icons/youtube';
+import OnePagerNavbar from '@/components/layout/navbar/one-pager';
+import SpotifyEmbedPlayer from '@/components/spotify-embed-player';
+import VideoPlayer from '@/components/video-player';
 import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/image';
-import FacebookIcon from 'components/icons/facebook';
-import FeatherIllu from 'components/icons/feather';
-import InstagramIcon from 'components/icons/instagram';
-import LogoChickenLegIcon from 'components/icons/logo-chicken-leg';
-import SpotifyIcon from 'components/icons/spotify';
-import YouTubeIcon from 'components/icons/youtube';
-import OnePagerNavbar from 'components/layout/navbar/one-pager';
-import SpotifyEmbedPlayer from 'components/spotify-embed-player';
-import VideoPlayer from 'components/video-player';
+import { groq } from 'next-sanity';
 import Image from 'next/image';
 
 export const revalidate = 60;
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
-export const metadata = {
-  description:
-    'Evés, ivás, duhajkodás, szerelem és sírva vigadás. A Bohemian Betyars 2009-es működése óta nem csak ország, de világszerte belopta magát egy tekintélyes méretű közönség szívébe speed-folk-freak-punkos, magával ragadó, energikus formációjával.',
-  openGraph: {
-    type: 'website'
-  }
-};
-
-export default async function HomePage() {
-  const homePageData = await client.fetch(
-    `*[_id == "homePage"][0]{
+export default async function IndexPage({
+  params
+}: {
+  params: Promise<{ lang: 'hu' | 'en' }>;
+}) {
+  const { lang } = await params;
+  const pageData = await client.fetch(
+    groq`*[_id == "indexPage"][0]{
       headerImage, 
       footerImage, 
-      videoSectionTitle, 
       youtube, 
-      aboutFirstPart, 
-      aboutSecondPart, 
-      aboutTitle,
-      contactTitle,
-      contacts[]-> {  
+      "videoSectionTitle": videoSectionTitle[_key == $locale][0].value,
+      "aboutFirstPart": aboutFirstPart[_key == $locale][0].value,
+      "aboutSecondPart": aboutSecondPart[_key == $locale][0].value,
+      "aboutTitle": aboutTitle[_key == $locale][0].value,
+      "contactTitle": contactTitle[_key == $locale][0].value,
+      "contacts": contacts[]-> {
         _id,
         title,
         fullName,
-        phoneNumber,
+        phoneNumber
       }
-    }`
+    }`,
+    {
+      locale: lang
+    }
   );
+
   const currentYear = new Date().getFullYear();
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
     <>
-      <OnePagerNavbar />
+      <OnePagerNavbar locale={lang} />
       <div className="relative">
         <Image
-          src={urlFor(homePageData.headerImage).url()}
+          src={urlFor(pageData.headerImage).url()}
           alt="concert"
           width="3840"
           height="2160"
@@ -90,7 +92,10 @@ export default async function HomePage() {
             rel="noopener noreferrer"
             className="flex h-10 w-10 items-center justify-center"
           >
-            <SpotifyIcon className="h-10 w-10 stroke-bb-yellow" lineFill="#1A1E1E" />
+            <SpotifyIcon
+              className="h-10 w-10 stroke-bb-yellow"
+              lineFill="#1A1E1E"
+            />
           </a>
           <a
             href="https://www.tiktok.com/@bohemianbetyars"
@@ -102,40 +107,46 @@ export default async function HomePage() {
           </a>
         </div>
         <h2 className="mb-3 text-center font-kirakat text-lg text-bb-yellow md:text-xl">
-          {homePageData.videoSectionTitle}
+          {pageData.videoSectionTitle}
         </h2>
-        <VideoPlayer url={homePageData.youtube} controls light />
+        <VideoPlayer url={pageData.youtube} controls light />
       </section>
       <section
         id="about"
         className="mx-auto flex max-w-7xl flex-col items-center gap-1 px-8 py-4 text-bb-yellow md:items-start md:py-8"
       >
-        <h2 className="font-kirakat">{homePageData.aboutTitle}</h2>
+        <h2 className="font-kirakat">{pageData.aboutTitle}</h2>
         <div className="flex flex-col items-center gap-6 md:flex-row md:gap-32">
-          <p className="font-light">{homePageData.aboutFirstPart}</p>
+          <p className="font-light">{pageData.aboutFirstPart}</p>
           <LogoChickenLegIcon className="flex-shrink-0 fill-bb-white" />
-          <p className="font-light">{homePageData.aboutSecondPart}</p>
+          <p className="font-light">{pageData.aboutSecondPart}</p>
         </div>
       </section>
       <section
         id="contact"
         className="mx-auto flex max-w-7xl flex-col items-start gap-4 p-8 text-bb-yellow"
       >
-        <h2 className="font-kirakat">{homePageData.contactTitle}</h2>
+        <h2 className="font-kirakat">{pageData.contactTitle}</h2>
         <div className="flex w-full justify-between">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col">
-              <p>{homePageData.contacts[0].title}</p>
-              <p className="font-light">{homePageData.contacts[0].fullName}</p>
-              <a href={`tel:${homePageData.contacts[0].phoneNumber}`} className="font-light">
-                {homePageData.contacts[0].phoneNumber}
+              <p>{pageData.contacts[0].title}</p>
+              <p className="font-light">{pageData.contacts[0].fullName}</p>
+              <a
+                href={`tel:${pageData.contacts[0].phoneNumber}`}
+                className="font-light"
+              >
+                {pageData.contacts[0].phoneNumber}
               </a>
             </div>
             <div className="flex flex-col">
-              <p>{homePageData.contacts[1].title}</p>
-              <p className="font-light">{homePageData.contacts[1].fullName}</p>
-              <a href={`tel:${homePageData.contacts[1].phoneNumber}`} className="font-light">
-                {homePageData.contacts[1].phoneNumber}
+              <p>{pageData.contacts[1].title}</p>
+              <p className="font-light">{pageData.contacts[1].fullName}</p>
+              <a
+                href={`tel:${pageData.contacts[1].phoneNumber}`}
+                className="font-light"
+              >
+                {pageData.contacts[1].phoneNumber}
               </a>
             </div>
           </div>
@@ -147,7 +158,9 @@ export default async function HomePage() {
               className="flex items-center justify-center gap-2"
             >
               <InstagramIcon className="h-6 w-6 stroke-bb-yellow" />
-              <span className="hidden md:flex">instagram.com/bohemianbetyars</span>
+              <span className="hidden md:flex">
+                instagram.com/bohemianbetyars
+              </span>
             </a>
             <a
               href="https://www.facebook.com/bohemianbetyars"
@@ -156,7 +169,9 @@ export default async function HomePage() {
               className="flex items-center justify-center gap-2"
             >
               <FacebookIcon className="h-6 w-6 stroke-bb-yellow" />
-              <span className="hidden md:flex">facebook.com/bohemianbetyars</span>
+              <span className="hidden md:flex">
+                facebook.com/bohemianbetyars
+              </span>
             </a>
             <a
               href="https://www.youtube.com/@BohemianBetyarsHungary"
@@ -165,7 +180,9 @@ export default async function HomePage() {
               className="flex items-center justify-center gap-2"
             >
               <YouTubeIcon className="h-6 w-6 stroke-bb-yellow" />
-              <span className="hidden md:flex">youtube.com/bohemianbetyarshungary</span>
+              <span className="hidden md:flex">
+                youtube.com/bohemianbetyarshungary
+              </span>
             </a>
             <a
               href="https://open.spotify.com/artist/2ezYPSKWBfnFTobN9puCow?si=jxLEJAiPRte-yw2vY1QVwg"
@@ -174,7 +191,9 @@ export default async function HomePage() {
               className="flex items-center justify-center gap-2"
             >
               <SpotifyIcon className="h-6 w-6 stroke-bb-yellow" />
-              <span className="hidden md:flex">spotify.com/bohemianbetyars</span>
+              <span className="hidden md:flex">
+                spotify.com/bohemianbetyars
+              </span>
             </a>
             <a
               href="https://www.tiktok.com/@bohemianbetyars"
@@ -183,7 +202,9 @@ export default async function HomePage() {
               className="flex items-center justify-center gap-2"
             >
               <TikTokIcon className="h-6 w-6 stroke-bb-yellow" />
-              <span className="hidden md:flex">tiktok.com/@bohemianbetyars</span>
+              <span className="hidden md:flex">
+                tiktok.com/@bohemianbetyars
+              </span>
             </a>
           </div>
           <div className="hidden md:flex">
@@ -199,7 +220,7 @@ export default async function HomePage() {
       </section>
       <div className="relative">
         <Image
-          src={urlFor(homePageData.footerImage).url()}
+          src={urlFor(pageData.footerImage).url()}
           alt="group"
           width="3840"
           height="2160"

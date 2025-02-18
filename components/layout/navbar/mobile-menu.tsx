@@ -1,10 +1,11 @@
 'use client';
 
+import { Link } from '@/components/link-wrapper';
 import { Dialog, Transition } from '@headlessui/react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { Link } from 'nextjs13-progress';
 import { Fragment, useEffect, useState } from 'react';
 
+import { LocaleSwitcher } from '@/components/locale-switcher';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Menu } from 'lib/shopify/types';
 
@@ -89,6 +90,9 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                     ))}
                   </ul>
                 ) : null}
+                <div className="flex justify-center py-4">
+                  <LocaleSwitcher />
+                </div>
               </div>
             </Dialog.Panel>
           </Transition.Child>

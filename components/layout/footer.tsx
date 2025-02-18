@@ -1,3 +1,4 @@
+import { Link } from '@/components/link-wrapper';
 import DividerDesktop from 'components/icons/divider-desktop';
 import DividerMobile from 'components/icons/divider-mobile';
 import FacebookIcon from 'components/icons/facebook';
@@ -7,7 +8,6 @@ import LogoBohemianBetyars from 'components/icons/logo-bb';
 import SpotifyIcon from 'components/icons/spotify';
 import YouTubeIcon from 'components/icons/youtube';
 import { getMenu } from 'lib/shopify';
-import { Link } from 'nextjs13-progress';
 import TikTokIcon from '../icons/tiktok';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
@@ -27,7 +27,9 @@ export default async function Footer() {
           <LogoBohemianBetyars className="hidden h-auto w-48 fill-bb-white md:block" />
           <div className="flex flex-1 flex-col-reverse gap-8 md:flex-row md:gap-28">
             <div className="flex flex-col gap-1">
-              <p className="font-base font-kirakat uppercase text-bb-black">Információk</p>
+              <p className="font-base font-kirakat uppercase text-bb-black">
+                Információk
+              </p>
               <Link href="/" className="text-[13px] text-bb-white">
                 Főoldal
               </Link>
@@ -36,7 +38,9 @@ export default async function Footer() {
               </Link>
             </div>
             <div className="flex flex-col gap-1">
-              <p className="font-base font-kirakat uppercase text-bb-black">Rendelés</p>
+              <p className="font-base font-kirakat uppercase text-bb-black">
+                Rendelés
+              </p>
               <a
                 href="/documents/altalanos-szerzodesi-feltetelek.pdf"
                 className="text-[13px] text-bb-white"
@@ -58,7 +62,9 @@ export default async function Footer() {
               </a> */}
             </div>
             <div className="flex flex-col gap-1 md:ml-auto md:text-right">
-              <p className="font-base font-kirakat uppercase text-bb-black">Bohemian Betyars</p>
+              <p className="font-base font-kirakat uppercase text-bb-black">
+                Bohemian Betyars
+              </p>
               <a
                 href="mailto:info@bohemianbetyars.hu?subject=customer%20help"
                 target="_blank"
@@ -105,7 +111,10 @@ export default async function Footer() {
             rel="noopener noreferrer"
             className="flex h-9 w-9 items-center justify-center"
           >
-            <SpotifyIcon className="h-6 w-6 stroke-bb-black" lineFill="#1A1E1E" />
+            <SpotifyIcon
+              className="h-6 w-6 stroke-bb-black"
+              lineFill="#1A1E1E"
+            />
           </a>
           <a
             href="https://www.tiktok.com/@bohemianbetyars"
