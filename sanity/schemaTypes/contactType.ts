@@ -22,7 +22,8 @@ export const contactType = defineType({
     defineField({
       type: 'string',
       name: 'phoneNumber',
-      title: 'Phone number'
+      title: 'Phone number',
+      validation: (Rule) => Rule.required()
     })
   ],
   preview: {
