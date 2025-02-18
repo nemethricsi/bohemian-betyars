@@ -8,11 +8,6 @@ export const menuItemsType = defineType({
   icon: LinkIcon,
   fields: [
     defineField({
-      type: 'string',
-      name: 'title',
-      title: 'Title'
-    }),
-    defineField({
       type: 'menuItem',
       name: 'aboutUs',
       title: 'About us'
@@ -34,8 +29,10 @@ export const menuItemsType = defineType({
     })
   ],
   preview: {
-    select: {
-      title: 'title'
+    prepare() {
+      return {
+        title: 'Menu Items'
+      };
     }
   }
 });

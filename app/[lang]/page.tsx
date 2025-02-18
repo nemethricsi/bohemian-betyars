@@ -35,8 +35,8 @@ export default async function IndexPage({
       "contactTitle": contactTitle[_key == $locale][0].value,
       "contacts": contacts[]-> {
         _id,
-        title,
-        fullName,
+        "title": title[_key == $locale][0].value,
+        "fullName": fullName[_key == $locale][0].value,
         phoneNumber
       }
     }`,

@@ -6,10 +6,6 @@ export const indexPageType = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'pageTitle',
-      type: 'internationalizedArrayString'
-    }),
-    defineField({
       name: 'headerImage',
       type: 'image',
       options: {
@@ -67,8 +63,10 @@ export const indexPageType = defineType({
     })
   ],
   preview: {
-    select: {
-      title: 'pageTitle[0].value'
+    prepare() {
+      return {
+        title: 'Home Page'
+      };
     }
   }
 });

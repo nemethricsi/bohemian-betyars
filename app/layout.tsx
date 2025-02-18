@@ -48,13 +48,17 @@ export const metadata = {
 };
 
 export default async function RootLayout({
-  children
+  children,
+  params
 }: {
   children: ReactNode;
+  params: Promise<{ lang: 'hu' | 'en' }>;
 }) {
+  const { lang } = await params;
+
   return (
     <html
-      lang="en"
+      lang={lang || 'en'}
       suppressHydrationWarning
       className={`h-full ${kirakat.variable} ${oswald.variable} scroll-smooth font-sans`}
     >

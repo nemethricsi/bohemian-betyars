@@ -1,4 +1,9 @@
+'use client';
+
+import { getLocaleFromPathname } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 // import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 
 const Price = ({
   amount,
@@ -10,15 +15,22 @@ const Price = ({
   className?: string;
   currencyCode: string;
   currencyCodeClassName?: string;
-} & React.ComponentProps<'p'>) => (
-  <p suppressHydrationWarning={true} className={className}>
-    {`${new Intl.NumberFormat(undefined, {
-      style: 'currency',
-      currency: currencyCode,
-      currencyDisplay: 'narrowSymbol'
-    }).format(parseFloat(amount))}`}
-    {/* <span className={clsx('ml-1 inline', currencyCodeClassName)}>{`${currencyCode}`}</span> */}
-  </p>
-);
+} & React.ComponentProps<'p'>) => {
+  const [formattedPrice, setFormattedPrice] = useState(amount);
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+
+  useEffect(() => {
+    setFormattedPrice(
+      new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency: currencyCode,
+        currencyDisplay: 'symbol'
+      }).format(parseFloat(amount))
+    );
+  }, [amount, currencyCode]);
+
+  return <p className={className}>{formattedPrice}</p>;
+};
 
 export default Price;

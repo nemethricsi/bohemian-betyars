@@ -8,24 +8,27 @@ export const contactType = defineType({
   icon: UsersIcon,
   fields: [
     defineField({
-      type: 'string',
+      type: 'internationalizedArrayString',
       name: 'title',
-      title: 'Title'
+      title: 'Title',
+      validation: (Rule) => Rule.required()
     }),
     defineField({
-      type: 'string',
+      type: 'internationalizedArrayString',
       name: 'fullName',
-      title: 'Full name'
+      title: 'Full name',
+      validation: (Rule) => Rule.required()
     }),
     defineField({
       type: 'string',
       name: 'phoneNumber',
-      title: 'Phone number'
+      title: 'Phone number',
+      validation: (Rule) => Rule.required()
     })
   ],
   preview: {
     select: {
-      title: 'fullName'
+      title: 'fullName.0.value'
     }
   }
 });
