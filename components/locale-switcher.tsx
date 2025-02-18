@@ -15,16 +15,8 @@ import { i18n, type Locale } from '@/i18n-config';
 import { getLocaleFromPathname } from '@/lib/utils';
 
 const displayLocaleFlags = {
-  hu: (
-    <span role="img" aria-label="Hungarian" className="text-3xl">
-      🇭🇺
-    </span>
-  ),
-  en: (
-    <span role="img" aria-label="English" className="text-3xl">
-      🇬🇧
-    </span>
-  )
+  hu: <span className="fi fi-hu text-2xl" role="img" aria-label="Hungarian" />,
+  en: <span className="fi fi-gb text-2xl" role="img" aria-label="English" />
 };
 
 export function LocaleSwitcher({
@@ -47,7 +39,7 @@ export function LocaleSwitcher({
       <DropdownMenuTrigger asChild>
         <Button
           variant={buttonVariant}
-          className="flex-shrink-0 hover:bg-bb-purple/75"
+          className="flex-shrink-0 hover:bg-gray-500/50"
         >
           {displayLocaleFlags[currentLocale]}
         </Button>

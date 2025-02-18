@@ -3,7 +3,9 @@ import { Oswald } from 'next/font/google';
 import localFont from 'next/font/local';
 import { Next13NProgress } from 'nextjs13-progress';
 import { ReactNode } from 'react';
+
 import './globals.css';
+import '/node_modules/flag-icons/css/flag-icons.min.css';
 
 const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' });
 
