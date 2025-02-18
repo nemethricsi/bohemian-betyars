@@ -13,22 +13,22 @@ export const menuItemsType = defineType({
       title: 'Title'
     }),
     defineField({
-      type: 'internationalizedArrayString',
+      type: 'menuItem',
       name: 'aboutUs',
       title: 'About us'
     }),
     defineField({
-      type: 'internationalizedArrayString',
+      type: 'menuItem',
       name: 'shop',
       title: 'Shop'
     }),
     defineField({
-      type: 'internationalizedArrayString',
+      type: 'menuItem',
       name: 'videos',
       title: 'Videos'
     }),
     defineField({
-      type: 'internationalizedArrayString',
+      type: 'menuItem',
       name: 'contact',
       title: 'Contact'
     })
