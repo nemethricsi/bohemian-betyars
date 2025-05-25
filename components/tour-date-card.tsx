@@ -49,7 +49,7 @@ export const TourDateCard = ({
           href={eventUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex w-full items-center justify-center gap-2 border border-bb-yellow bg-bb-yellow px-4 py-2 font-bold uppercase text-bb-black hover:bg-bb-yellow hover:text-bb-black sm:w-auto sm:bg-transparent sm:text-bb-yellow"
+          className="flex w-full flex-shrink-0 items-center justify-center gap-2 border border-bb-yellow bg-bb-yellow px-4 py-2 font-bold uppercase text-bb-black hover:bg-bb-yellow hover:text-bb-black sm:w-auto sm:bg-transparent sm:text-bb-yellow"
         >
           <span>{ticketsButtonLabel}</span>
           <ArrowUpRightIcon />
