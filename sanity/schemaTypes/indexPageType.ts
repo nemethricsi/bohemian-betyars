@@ -28,6 +28,16 @@ export const indexPageType = defineType({
       title: 'About title'
     }),
     defineField({
+      type: 'internationalizedArrayString',
+      name: 'tourTitle',
+      title: 'Tour title'
+    }),
+    defineField({
+      type: 'internationalizedArrayString',
+      name: 'ticketsButtonLabel',
+      title: 'Tickets button label'
+    }),
+    defineField({
       type: 'internationalizedArrayText',
       name: 'aboutFirstPart',
       title: 'About first part'

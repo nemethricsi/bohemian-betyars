@@ -19,6 +19,11 @@ export const menuItemsType = defineType({
     }),
     defineField({
       type: 'menuItem',
+      name: 'tour',
+      title: 'Tour'
+    }),
+    defineField({
+      type: 'menuItem',
       name: 'videos',
       title: 'Videos'
     }),
