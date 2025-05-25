@@ -33,7 +33,8 @@ export default defineConfig({
       languages: [
         { id: 'hu', title: 'Magyar' },
         { id: 'en', title: 'English' },
-        { id: 'de', title: 'Deutsch' }
+        { id: 'de', title: 'Deutsch' },
+        { id: 'fr', title: 'Français' }
       ],
       fieldTypes: ['string', 'text'],
       defaultLanguages: ['hu']
