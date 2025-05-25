@@ -38,6 +38,21 @@ export const indexPageType = defineType({
       title: 'Tickets button label'
     }),
     defineField({
+      type: 'internationalizedArrayString',
+      name: 'showMoreDatesLabel',
+      title: 'Show more dates label'
+    }),
+    defineField({
+      type: 'internationalizedArrayString',
+      name: 'showLessDatesLabel',
+      title: 'Show less dates label'
+    }),
+    defineField({
+      type: 'number',
+      name: 'tourDatesToShow',
+      title: 'Tour dates to show initally'
+    }),
+    defineField({
       type: 'internationalizedArrayText',
       name: 'aboutFirstPart',
       title: 'About first part'

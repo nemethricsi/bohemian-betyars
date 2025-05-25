@@ -7,9 +7,9 @@ import TikTokIcon from '@/components/icons/tiktok';
 import YouTubeIcon from '@/components/icons/youtube';
 import OnePagerNavbar from '@/components/layout/navbar/one-pager';
 import SpotifyEmbedPlayer from '@/components/spotify-embed-player';
+import { TourDatesList } from '@/components/tour-dates-list';
 import VideoPlayer from '@/components/video-player';
 import { BitEvent } from '@/lib/bit';
-import { formatTourDate } from '@/lib/utils';
 import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/image';
 import { groq } from 'next-sanity';
@@ -30,12 +30,15 @@ export default async function IndexPage({
       headerImage,
       footerImage,
       youtube,
+      tourDatesToShow,
       "videoSectionTitle": videoSectionTitle[_key == $locale][0].value,
       "aboutFirstPart": aboutFirstPart[_key == $locale][0].value,
       "aboutSecondPart": aboutSecondPart[_key == $locale][0].value,
       "aboutTitle": aboutTitle[_key == $locale][0].value,
       "tourTitle": tourTitle[_key == $locale][0].value,
       "ticketsButtonLabel": ticketsButtonLabel[_key == $locale][0].value,
+      "showMoreDatesLabel": showMoreDatesLabel[_key == $locale][0].value,
+      "showLessDatesLabel": showLessDatesLabel[_key == $locale][0].value,
       "contactTitle": contactTitle[_key == $locale][0].value,
       "contacts": contacts[]-> {
         _id,
@@ -140,55 +143,14 @@ export default async function IndexPage({
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-1 px-8 py-4 text-bb-yellow md:items-start md:py-8">
           <h2 className="font-kirakat">{pageData.tourTitle}</h2>
           <div className="flex w-full flex-col">
-            {concerts.map(({ id, title, datetime, venue, offers }) => {
-              const eventUrl = offers[0]?.url;
-              const { day, month, year } = formatTourDate(datetime, lang);
-
-              return (
-                <div
-                  key={id}
-                  className="flex flex-col items-center justify-between gap-6 border-b border-neutral-400 px-0 py-4 hover:cursor-pointer hover:bg-slate-800 sm:flex-row sm:gap-4 sm:p-4"
-                >
-                  <div className="flex w-full items-center gap-4 sm:gap-8">
-                    {/* Date */}
-                    <div className="flex flex-shrink-0 items-center gap-1">
-                      <div className="w-11 text-[40px] font-medium sm:w-14 sm:text-5xl">
-                        {day}
-                      </div>
-                      <div className="flex flex-col">
-                        <div className="text-xl font-medium uppercase sm:text-2xl">
-                          {month}
-                        </div>
-                        <div className="text-lg font-medium sm:text-xl">
-                          {year}
-                        </div>
-                      </div>
-                    </div>
-                    {/*Separator*/}
-                    <div className="h-10 w-px bg-bb-yellow" />
-                    {/*Name and venue*/}
-                    <div className="flex flex-col">
-                      <div className="text-base font-medium uppercase sm:text-xl">
-                        {title.length > 0 ? title : venue.name}
-                      </div>
-                      <div className="text-sm font-light uppercase sm:text-base">
-                        {venue.country}
-                      </div>
-                    </div>
-                  </div>
-                  {eventUrl && (
-                    <a
-                      href={eventUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full border border-bb-yellow bg-bb-yellow px-4 py-2 text-center font-bold text-bb-black hover:bg-bb-yellow hover:text-bb-black sm:w-auto sm:bg-transparent sm:text-bb-yellow"
-                    >
-                      {pageData.ticketsButtonLabel}
-                    </a>
-                  )}
-                </div>
-              );
-            })}
+            <TourDatesList
+              concerts={concerts}
+              locale={lang}
+              ticketsButtonLabel={pageData.ticketsButtonLabel}
+              showMoreDatesLabel={pageData.showMoreDatesLabel}
+              showLessDatesLabel={pageData.showLessDatesLabel}
+              tourDatesToShow={pageData.tourDatesToShow}
+            />
           </div>
         </div>
       </section>
