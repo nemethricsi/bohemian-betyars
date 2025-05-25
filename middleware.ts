@@ -14,7 +14,7 @@ function getLocale(request: NextRequest): string | undefined {
   const locales: string[] = i18n.locales;
 
   // Use negotiator and intl-localematcher to get best locale
-  let languages = new Negotiator({ headers: negotiatorHeaders }).languages(
+  const languages = new Negotiator({ headers: negotiatorHeaders }).languages(
     locales
   );
 
@@ -26,6 +26,12 @@ function getLocale(request: NextRequest): string | undefined {
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+
+  // Redirect from /shop to home page
+  if (pathname.endsWith('/shop')) {
+    const locale = getLocale(request);
+    return NextResponse.redirect(new URL(`/${locale}`, request.url));
+  }
 
   // Skip locale redirect for /admin path and public files
   if (
