@@ -37,7 +37,8 @@ export default defineConfig({
         { id: 'fr', title: 'Français' },
         { id: 'zh', title: '中文' },
         { id: 'es', title: 'Español' },
-        { id: 'ja', title: '日本語' }
+        { id: 'ja', title: '日本語' },
+        { id: 'ko', title: '한국어' }
       ],
       fieldTypes: ['string', 'text'],
       defaultLanguages: ['hu']

@@ -21,7 +21,8 @@ const displayLocaleFlags = {
   fr: <span className="fi fi-fr text-2xl" role="img" aria-label="French" />,
   zh: <span className="fi fi-cn text-2xl" role="img" aria-label="Chinese" />,
   es: <span className="fi fi-es text-2xl" role="img" aria-label="Spanish" />,
-  ja: <span className="fi fi-jp text-2xl" role="img" aria-label="Japanese" />
+  ja: <span className="fi fi-jp text-2xl" role="img" aria-label="Japanese" />,
+  ko: <span className="fi fi-kr text-2xl" role="img" aria-label="Korean" />
 };
 
 export function LocaleSwitcher({
@@ -82,7 +83,8 @@ const MenuItem = ({
     fr: 'Français',
     zh: '中文',
     es: 'Español',
-    ja: '日本語'
+    ja: '日本語',
+    ko: '한국어'
   };
   return (
     <DropdownMenuItem asChild>

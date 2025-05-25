@@ -1,7 +1,7 @@
 import type { Locale } from '@/i18n-config';
 import { clsx, type ClassValue } from 'clsx';
 import { format } from 'date-fns';
-import { de, enUS, es, fr, hu, ja, zhCN } from 'date-fns/locale';
+import { de, enUS, es, fr, hu, ja, ko, zhCN } from 'date-fns/locale';
 import { ReadonlyURLSearchParams } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
 
@@ -76,5 +76,6 @@ const localeMap = {
   fr: fr,
   zh: zhCN,
   es: es,
-  ja: ja
+  ja: ja,
+  ko: ko
 };
