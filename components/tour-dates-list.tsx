@@ -54,7 +54,7 @@ export const TourDatesList = ({
       {concerts.length > tourDatesToShow && (
         <Collapsible.Trigger
           asChild
-          className="mt-4 flex w-full justify-center uppercase underline underline-offset-4 hover:no-underline"
+          className="mt-4 flex w-full flex-shrink-0 justify-center uppercase underline underline-offset-4 hover:no-underline"
         >
           <Button className="font-normal">
             {open ? showLessDatesLabel : showMoreDatesLabel}

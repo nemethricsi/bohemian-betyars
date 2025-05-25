@@ -55,7 +55,7 @@ export default async function OnePagerNavbar({ locale }: { locale: Locale }) {
     <>
       <nav className="relative hidden justify-center gap-12 p-8 pt-16 font-kirakat text-xl text-bb-yellow md:flex">
         <div className="relative flex items-center gap-12">
-          <div className="absolute -left-20 -top-1">
+          <div className="absolute -left-20">
             <LocaleSwitcher />
           </div>
           <a href={data.aboutUs.path}>{data.aboutUs.title}</a>
