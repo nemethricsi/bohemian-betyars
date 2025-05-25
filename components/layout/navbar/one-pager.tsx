@@ -1,4 +1,3 @@
-import { Link } from '@/components/link-wrapper';
 import { defineQuery } from 'next-sanity';
 import { Suspense } from 'react';
 
@@ -13,6 +12,7 @@ type MenuItem = { path: string; title: string };
 type Response = {
   aboutUs: MenuItem;
   shop: MenuItem;
+  tour: MenuItem;
   videos: MenuItem;
   contact: MenuItem;
 };
@@ -23,6 +23,10 @@ const query = defineQuery(`*[_id == "menuItems"][0]{
     "title": title[_key == $locale][0].value
   },
   shop {
+    path,
+    "title": title[_key == $locale][0].value
+  },
+  tour {
     path,
     "title": title[_key == $locale][0].value
   },
@@ -41,7 +45,8 @@ export default async function OnePagerNavbar({ locale }: { locale: Locale }) {
 
   const mobileMenu: Menu[] = [
     { title: data.aboutUs.title, path: data.aboutUs.path },
-    { title: data.shop.title, path: data.shop.path },
+    // { title: data.shop.title, path: data.shop.path },
+    { title: data.tour.title, path: data.tour.path },
     { title: data.videos.title, path: data.videos.path },
     { title: data.contact.title, path: data.contact.path }
   ];
@@ -54,7 +59,8 @@ export default async function OnePagerNavbar({ locale }: { locale: Locale }) {
             <LocaleSwitcher />
           </div>
           <a href={data.aboutUs.path}>{data.aboutUs.title}</a>
-          <Link href={data.shop.path}>{data.shop.title}</Link>
+          <a href={data.tour.path}>{data.tour.title}</a>
+          {/*<Link href={data.shop.path}>{data.shop.title}</Link>*/}
         </div>
         <div className="absolute z-10 flex -translate-x-6 -translate-y-6 justify-center">
           <LogoBohemianBetyars className="hidden h-[251px] w-[295px] fill-bb-white md:block" />

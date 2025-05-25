@@ -7,7 +7,9 @@ import TikTokIcon from '@/components/icons/tiktok';
 import YouTubeIcon from '@/components/icons/youtube';
 import OnePagerNavbar from '@/components/layout/navbar/one-pager';
 import SpotifyEmbedPlayer from '@/components/spotify-embed-player';
+import { TourDatesList } from '@/components/tour-dates-list';
 import VideoPlayer from '@/components/video-player';
+import { BitEvent } from '@/lib/bit';
 import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/image';
 import { groq } from 'next-sanity';
@@ -25,13 +27,18 @@ export default async function IndexPage({
   const { lang } = await params;
   const pageData = await client.fetch(
     groq`*[_id == "indexPage"][0]{
-      headerImage, 
-      footerImage, 
-      youtube, 
+      headerImage,
+      footerImage,
+      youtube,
+      tourDatesToShow,
       "videoSectionTitle": videoSectionTitle[_key == $locale][0].value,
       "aboutFirstPart": aboutFirstPart[_key == $locale][0].value,
       "aboutSecondPart": aboutSecondPart[_key == $locale][0].value,
       "aboutTitle": aboutTitle[_key == $locale][0].value,
+      "tourTitle": tourTitle[_key == $locale][0].value,
+      "ticketsButtonLabel": ticketsButtonLabel[_key == $locale][0].value,
+      "showMoreDatesLabel": showMoreDatesLabel[_key == $locale][0].value,
+      "showLessDatesLabel": showLessDatesLabel[_key == $locale][0].value,
       "contactTitle": contactTitle[_key == $locale][0].value,
       "contacts": contacts[]-> {
         _id,
@@ -44,6 +51,16 @@ export default async function IndexPage({
       locale: lang
     }
   );
+
+  const fetchBandsInTownConcerts = async (): Promise<BitEvent[]> => {
+    const response = await fetch(
+      `https://rest.bandsintown.com/artists/Bohemian%20Betyars/events/?app_id=${process.env.BANDSINTOWN_API_KEY}`
+    );
+    const data = await response.json();
+    return data;
+  };
+
+  const concerts = await fetchBandsInTownConcerts();
 
   const currentYear = new Date().getFullYear();
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
@@ -120,6 +137,21 @@ export default async function IndexPage({
           <p className="font-light">{pageData.aboutFirstPart}</p>
           <LogoChickenLegIcon className="flex-shrink-0 fill-bb-white" />
           <p className="font-light">{pageData.aboutSecondPart}</p>
+        </div>
+      </section>
+      <section id="tour">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-1 px-8 py-4 text-bb-yellow md:items-start md:py-8">
+          <h2 className="font-kirakat">{pageData.tourTitle}</h2>
+          <div className="flex w-full flex-col">
+            <TourDatesList
+              concerts={concerts}
+              locale={lang}
+              ticketsButtonLabel={pageData.ticketsButtonLabel}
+              showMoreDatesLabel={pageData.showMoreDatesLabel}
+              showLessDatesLabel={pageData.showLessDatesLabel}
+              tourDatesToShow={pageData.tourDatesToShow}
+            />
+          </div>
         </div>
       </section>
       <section
