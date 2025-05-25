@@ -28,7 +28,11 @@ export const TourDatesList = ({
   const [open, setOpen] = useState(false);
 
   return (
-    <Collapsible.Root open={open} onOpenChange={setOpen}>
+    <Collapsible.Root
+      open={open}
+      onOpenChange={setOpen}
+      className="flex flex-col gap-6 sm:gap-0"
+    >
       {concerts.slice(0, tourDatesToShow).map((event) => {
         return (
           <TourDateCard

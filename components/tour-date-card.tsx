@@ -18,7 +18,7 @@ export const TourDateCard = ({
   const eventUrl = event.offers[0]?.url;
 
   return (
-    <div className="flex flex-col items-center justify-between gap-6 px-0 py-4 hover:bg-slate-800 sm:flex-row sm:gap-4 sm:p-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-neutral-400">
+    <div className="flex flex-col items-center justify-between gap-6 px-0 py-2 hover:bg-slate-800 sm:flex-row sm:gap-4 sm:p-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-neutral-400">
       <div className="flex w-full items-center gap-4 sm:gap-8">
         {/* Date */}
         <div className="flex flex-shrink-0 items-center gap-1">

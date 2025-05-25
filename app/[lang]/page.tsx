@@ -31,8 +31,10 @@ export default async function IndexPage({
       headerImage,
       footerImage,
       youtube,
+      youtubeTwo,
       tourDatesToShow,
-      "videoSectionTitle": videoSectionTitle[_key == $locale][0].value,
+      "videoOneSectionTitle": videoOneSectionTitle[_key == $locale][0].value,
+      "videoTwoSectionTitle": videoTwoSectionTitle[_key == $locale][0].value,
       "aboutFirstPart": aboutFirstPart[_key == $locale][0].value,
       "aboutSecondPart": aboutSecondPart[_key == $locale][0].value,
       "aboutTitle": aboutTitle[_key == $locale][0].value,
@@ -87,13 +89,16 @@ export default async function IndexPage({
         />
         <div className="absolute inset-0 bg-gradient-to-b from-bb-black via-transparent to-bb-black" />
       </div>
-      <section id="videos" className="relative z-10 p-8 md:-mt-72">
+      <section
+        id="videos"
+        className="relative z-10 mx-auto max-w-7xl p-8 md:-mt-72"
+      >
         <div className="mb-44 hidden justify-center gap-24 self-stretch md:flex">
           <a
             href="https://www.instagram.com/bohemianbetyars"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-10 w-10 items-center justify-center"
+            className="flex h-10 w-10 items-center justify-center transition-transform hover:rotate-12"
           >
             <InstagramIcon className="h-10 w-10 stroke-bb-yellow" />
           </a>
@@ -101,7 +106,7 @@ export default async function IndexPage({
             href="https://www.facebook.com/bohemianbetyars"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-10 w-10 items-center justify-center"
+            className="flex h-10 w-10 items-center justify-center transition-transform hover:rotate-12"
           >
             <FacebookIcon className="h-10 w-10 stroke-bb-yellow" />
           </a>
@@ -109,7 +114,7 @@ export default async function IndexPage({
             href="https://www.youtube.com/@BohemianBetyarsHungary"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-10 w-10 items-center justify-center"
+            className="flex h-10 w-10 items-center justify-center transition-transform hover:rotate-12"
           >
             <YouTubeIcon className="h-10 w-10 stroke-bb-yellow" />
           </a>
@@ -117,7 +122,7 @@ export default async function IndexPage({
             href="https://open.spotify.com/artist/2ezYPSKWBfnFTobN9puCow?si=jxLEJAiPRte-yw2vY1QVwg"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-10 w-10 items-center justify-center"
+            className="flex h-10 w-10 items-center justify-center transition-transform hover:rotate-12"
           >
             <SpotifyIcon
               className="h-10 w-10 stroke-bb-yellow"
@@ -128,19 +133,29 @@ export default async function IndexPage({
             href="https://www.tiktok.com/@bohemianbetyars"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-10 w-10 items-center justify-center"
+            className="flex h-10 w-10 items-center justify-center transition-transform hover:rotate-12"
           >
             <TikTokIcon className="h-10 w-10 stroke-bb-yellow" />
           </a>
         </div>
-        <h2 className="mb-3 text-center font-kirakat text-lg text-bb-yellow md:text-xl">
-          {pageData.videoSectionTitle}
-        </h2>
-        <VideoPlayer url={pageData.youtube} controls light />
+        <div className="flex flex-col items-center justify-center gap-14 sm:flex-row">
+          <div className="w-full">
+            <h2 className="mb-3 text-center font-kirakat text-lg text-bb-yellow sm:line-clamp-1 md:text-xl">
+              {pageData.videoOneSectionTitle}
+            </h2>
+            <VideoPlayer url={pageData.youtube} controls light />
+          </div>
+          <div className="w-full">
+            <h2 className="mb-3 text-center font-kirakat text-lg text-bb-yellow sm:line-clamp-1 md:text-xl">
+              {pageData.videoTwoSectionTitle}
+            </h2>
+            <VideoPlayer url={pageData.youtubeTwo} controls light />
+          </div>
+        </div>
       </section>
       <section
         id="about"
-        className="mx-auto flex max-w-7xl flex-col items-center gap-1 px-8 py-4 text-bb-yellow md:items-start md:py-8"
+        className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-8 py-4 text-bb-yellow md:items-start md:py-8"
       >
         <h2 className="font-kirakat">{pageData.aboutTitle}</h2>
         <div className="flex flex-col items-center gap-6 md:flex-row md:gap-32">
@@ -150,9 +165,9 @@ export default async function IndexPage({
         </div>
       </section>
       <section id="tour">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-1 px-8 py-4 text-bb-yellow md:items-start md:py-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-8 py-4 text-bb-yellow md:items-start md:py-8">
           <h2 className="font-kirakat">{pageData.tourTitle}</h2>
-          <div className="flex w-full flex-col">
+          <div className="w-full">
             <TourDatesList
               concerts={concerts}
               locale={lang}

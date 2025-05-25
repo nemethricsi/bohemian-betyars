@@ -13,8 +13,10 @@ export interface HomePageData {
   ticketsButtonLabel: string;
   tourDatesToShow: number;
   tourTitle: string;
-  videoSectionTitle: string;
+  videoOneSectionTitle: string;
+  videoTwoSectionTitle: string;
   youtube: string;
+  youtubeTwo: string;
 }
 
 interface Contact {
