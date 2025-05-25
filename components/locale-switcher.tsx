@@ -16,7 +16,8 @@ import { getLocaleFromPathname } from '@/lib/utils';
 
 const displayLocaleFlags = {
   hu: <span className="fi fi-hu text-2xl" role="img" aria-label="Hungarian" />,
-  en: <span className="fi fi-gb text-2xl" role="img" aria-label="English" />
+  en: <span className="fi fi-gb text-2xl" role="img" aria-label="English" />,
+  de: <span className="fi fi-de text-2xl" role="img" aria-label="German" />
 };
 
 export function LocaleSwitcher({
@@ -72,7 +73,8 @@ const MenuItem = ({
 }) => {
   const displayLocales = {
     hu: 'Magyar',
-    en: 'English'
+    en: 'English',
+    de: 'Deutsch'
   };
   return (
     <DropdownMenuItem asChild>

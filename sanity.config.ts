@@ -32,7 +32,8 @@ export default defineConfig({
     internationalizedArray({
       languages: [
         { id: 'hu', title: 'Magyar' },
-        { id: 'en', title: 'English' }
+        { id: 'en', title: 'English' },
+        { id: 'de', title: 'Deutsch' }
       ],
       fieldTypes: ['string', 'text'],
       defaultLanguages: ['hu']
