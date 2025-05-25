@@ -172,7 +172,7 @@ export default async function IndexPage({
         <div className="flex w-full justify-between">
           <div className="flex flex-col gap-8">
             {firstContactPerson && (
-              <div className="flex flex-col gap-0.5">
+              <div className="flex flex-col">
                 <p>{firstContactPerson.title}</p>
                 <p className="font-light">{firstContactPerson.fullName}</p>
                 <a
@@ -190,7 +190,7 @@ export default async function IndexPage({
               </div>
             )}
             {secondContactPerson && (
-              <div className="flex flex-col gap-0.5">
+              <div className="flex flex-col">
                 <p>{secondContactPerson.title}</p>
                 <p className="font-light">{secondContactPerson.fullName}</p>
                 <a
