@@ -1,5 +1,7 @@
 import type { Locale } from '@/i18n-config';
 import { clsx, type ClassValue } from 'clsx';
+import { format } from 'date-fns';
+import { enUS, hu } from 'date-fns/locale';
 import { ReadonlyURLSearchParams } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
 
@@ -57,3 +59,17 @@ export function getLocaleFromPathname(pathname: string) {
   const pathnameParts = pathname.split('/');
   return pathnameParts[1] as Locale;
 }
+
+export function formatTourDate(datetime: string, locale: Locale) {
+  const date = new Date(datetime);
+  const day = format(date, 'dd');
+  const month = format(date, 'MMM', { locale: localeMap[locale] });
+  const year = format(date, 'yyyy');
+
+  return { day, month, year };
+}
+
+const localeMap = {
+  hu: hu,
+  en: enUS
+};
