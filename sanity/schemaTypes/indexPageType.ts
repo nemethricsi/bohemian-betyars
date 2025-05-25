@@ -14,13 +14,23 @@ export const indexPageType = defineType({
     }),
     defineField({
       type: 'internationalizedArrayString',
-      name: 'videoSectionTitle',
-      title: 'Video section title'
+      name: 'videoOneSectionTitle',
+      title: 'Video 1 section title'
     }),
     defineField({
       name: 'youtube',
       type: 'url',
-      title: 'Home Page Youtube video URL'
+      title: 'Youtube video 1 URL'
+    }),
+    defineField({
+      type: 'internationalizedArrayString',
+      name: 'videoTwoSectionTitle',
+      title: 'Video 2 section title'
+    }),
+    defineField({
+      name: 'youtubeTwo',
+      type: 'url',
+      title: 'Youtube video 2 URL'
     }),
     defineField({
       type: 'internationalizedArrayString',
