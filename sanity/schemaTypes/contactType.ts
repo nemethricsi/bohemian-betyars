@@ -20,15 +20,27 @@ export const contactType = defineType({
       validation: (Rule) => Rule.required()
     }),
     defineField({
-      type: 'string',
+      type: 'internationalizedArrayString',
+      name: 'email',
+      title: 'Email',
+      validation: (Rule) => Rule.required()
+    }),
+    defineField({
+      type: 'internationalizedArrayString',
       name: 'phoneNumber',
       title: 'Phone number',
+      validation: (Rule) => Rule.required()
+    }),
+    defineField({
+      type: 'number',
+      name: 'order',
+      title: 'Order',
       validation: (Rule) => Rule.required()
     })
   ],
   preview: {
     select: {
-      title: 'fullName.0.value'
+      title: 'order'
     }
   }
 });
