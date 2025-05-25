@@ -12,6 +12,7 @@ import VideoPlayer from '@/components/video-player';
 import { BitEvent } from '@/lib/bit';
 import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/image';
+import { HomePageData } from '@/sanity/types';
 import { groq } from 'next-sanity';
 import Image from 'next/image';
 
@@ -25,7 +26,7 @@ export default async function IndexPage({
   params: Promise<{ lang: 'hu' | 'en' }>;
 }) {
   const { lang } = await params;
-  const pageData = await client.fetch(
+  const pageData = await client.fetch<HomePageData>(
     groq`*[_id == "indexPage"][0]{
       headerImage,
       footerImage,
@@ -42,9 +43,11 @@ export default async function IndexPage({
       "contactTitle": contactTitle[_key == $locale][0].value,
       "contacts": contacts[]-> {
         _id,
+        order,
         "title": title[_key == $locale][0].value,
         "fullName": fullName[_key == $locale][0].value,
-        phoneNumber
+        "phoneNumber": phoneNumber[_key == $locale][0].value,
+        "email": email[_key == $locale][0].value,
       }
     }`,
     {
@@ -64,6 +67,13 @@ export default async function IndexPage({
 
   const currentYear = new Date().getFullYear();
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
+
+  const firstContactPerson = pageData.contacts.find(
+    (contact) => contact.order === 1
+  );
+  const secondContactPerson = pageData.contacts.find(
+    (contact) => contact.order === 2
+  );
 
   return (
     <>
@@ -161,26 +171,42 @@ export default async function IndexPage({
         <h2 className="font-kirakat">{pageData.contactTitle}</h2>
         <div className="flex w-full justify-between">
           <div className="flex flex-col gap-8">
-            <div className="flex flex-col">
-              <p>{pageData.contacts[0].title}</p>
-              <p className="font-light">{pageData.contacts[0].fullName}</p>
-              <a
-                href={`tel:${pageData.contacts[0].phoneNumber}`}
-                className="font-light"
-              >
-                {pageData.contacts[0].phoneNumber}
-              </a>
-            </div>
-            <div className="flex flex-col">
-              <p>{pageData.contacts[1].title}</p>
-              <p className="font-light">{pageData.contacts[1].fullName}</p>
-              <a
-                href={`tel:${pageData.contacts[1].phoneNumber}`}
-                className="font-light"
-              >
-                {pageData.contacts[1].phoneNumber}
-              </a>
-            </div>
+            {firstContactPerson && (
+              <div className="flex flex-col">
+                <p>{firstContactPerson.title}</p>
+                <p className="font-light">{firstContactPerson.fullName}</p>
+                <a
+                  href={`mailto:${firstContactPerson.email}`}
+                  className="font-light underline underline-offset-4"
+                >
+                  {firstContactPerson.email}
+                </a>
+                <a
+                  href={`tel:${firstContactPerson.phoneNumber}`}
+                  className="font-light"
+                >
+                  {firstContactPerson.phoneNumber}
+                </a>
+              </div>
+            )}
+            {secondContactPerson && (
+              <div className="flex flex-col">
+                <p>{secondContactPerson.title}</p>
+                <p className="font-light">{secondContactPerson.fullName}</p>
+                <a
+                  href={`mailto:${secondContactPerson.email}`}
+                  className="font-light underline underline-offset-4"
+                >
+                  {secondContactPerson.email}
+                </a>
+                <a
+                  href={`tel:${secondContactPerson.phoneNumber}`}
+                  className="font-light"
+                >
+                  {secondContactPerson.phoneNumber}
+                </a>
+              </div>
+            )}
           </div>
           <div className="flex flex-col items-start justify-between">
             <a
