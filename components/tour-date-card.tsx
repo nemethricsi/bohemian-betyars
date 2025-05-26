@@ -40,7 +40,7 @@ export const TourDateCard = ({
             {event.title.length > 0 ? event.title : event.venue.name}
           </div>
           <div className="text-sm font-light uppercase sm:text-base">
-            {event.venue.country}
+            {event.venue.city}, {event.venue.country}
           </div>
         </div>
       </div>
