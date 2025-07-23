@@ -78,16 +78,29 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                 </div> */}
                 {menu.length ? (
                   <ul className="flex w-full flex-col">
-                    {menu.map((item: Menu) => (
-                      <li
-                        className="py-2 text-xl text-black transition-colors hover:text-neutral-500"
-                        key={item.title}
-                      >
-                        <Link href={item.path} onClick={closeMobileMenu}>
-                          {item.title}
-                        </Link>
-                      </li>
-                    ))}
+                    {menu.map((item: Menu) => {
+                      const isExternal = item.path.startsWith('http');
+                      return (
+                        <li
+                          className="py-2 text-xl text-black transition-colors hover:text-neutral-500"
+                          key={item.title}
+                        >
+                          {isExternal ? (
+                            <a
+                              href={item.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {item.title}
+                            </a>
+                          ) : (
+                            <Link href={item.path} onClick={closeMobileMenu}>
+                              {item.title}
+                            </Link>
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 ) : null}
                 <div className="flex justify-center py-4">
