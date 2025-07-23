@@ -7,6 +7,7 @@ import { LocaleSwitcher } from '@/components/locale-switcher';
 import type { Locale } from '@/i18n-config';
 import { client } from '@/sanity/lib/client';
 import type { Menu } from 'lib/shopify/types';
+import Link from 'next/link';
 
 type MenuItem = { path: string; title: string };
 type Response = {
@@ -45,7 +46,7 @@ export default async function OnePagerNavbar({ locale }: { locale: Locale }) {
 
   const mobileMenu: Menu[] = [
     { title: data.aboutUs.title, path: data.aboutUs.path },
-    // { title: data.shop.title, path: data.shop.path },
+    { title: data.shop.title, path: data.shop.path },
     { title: data.tour.title, path: data.tour.path },
     { title: data.videos.title, path: data.videos.path },
     { title: data.contact.title, path: data.contact.path }
@@ -60,12 +61,14 @@ export default async function OnePagerNavbar({ locale }: { locale: Locale }) {
           </div>
           <a href={data.aboutUs.path}>{data.aboutUs.title}</a>
           <a href={data.tour.path}>{data.tour.title}</a>
-          {/*<Link href={data.shop.path}>{data.shop.title}</Link>*/}
         </div>
-        <div className="absolute z-10 flex -translate-x-6 -translate-y-6 justify-center">
+        <div className="absolute z-10 flex -translate-x-10 -translate-y-6 justify-center">
           <LogoBohemianBetyars className="hidden h-[251px] w-[295px] fill-bb-white md:block" />
         </div>
         <div className="w-[295px]" />
+        <Link href={data.shop.path} target="_blank" rel="noopener noreferrer">
+          {data.shop.title}
+        </Link>
         <a href={data.videos.path}>{data.videos.title}</a>
         <a href={data.contact.path}>{data.contact.title}</a>
       </nav>
