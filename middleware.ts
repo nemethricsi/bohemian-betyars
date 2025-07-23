@@ -40,7 +40,8 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/images') ||
     pathname.startsWith('/svg') ||
     pathname.startsWith('/sitemap') ||
-    pathname.startsWith('/opengraph')
+    pathname.startsWith('/opengraph') ||
+    pathname.startsWith('/robots')
   ) {
     return;
   }
