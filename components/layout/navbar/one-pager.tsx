@@ -7,7 +7,6 @@ import { LocaleSwitcher } from '@/components/locale-switcher';
 import type { Locale } from '@/i18n-config';
 import { client } from '@/sanity/lib/client';
 import type { Menu } from 'lib/shopify/types';
-import Link from 'next/link';
 
 type MenuItem = { path: string; title: string };
 type Response = {
@@ -66,11 +65,11 @@ export default async function OnePagerNavbar({ locale }: { locale: Locale }) {
           <LogoBohemianBetyars className="hidden h-[251px] w-[295px] fill-bb-white md:block" />
         </div>
         <div className="w-[295px]" />
-        <Link href={data.shop.path} target="_blank" rel="noopener noreferrer">
-          {data.shop.title}
-        </Link>
         <a href={data.videos.path}>{data.videos.title}</a>
         <a href={data.contact.path}>{data.contact.title}</a>
+        <a href={data.shop.path} target="_blank" rel="noopener noreferrer">
+          {data.shop.title}
+        </a>
       </nav>
       <div className="relative block flex-none md:hidden">
         <LogoBohemianBetyars className="absolute left-1/2 top-5 z-10 h-auto w-40 -translate-x-1/2 fill-bb-white md:hidden" />
